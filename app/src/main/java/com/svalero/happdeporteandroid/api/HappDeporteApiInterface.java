@@ -5,4 +5,5 @@ package com.svalero.happdeporteandroid.api;
  */
 public interface HappDeporteApiInterface {
 
+
 }
