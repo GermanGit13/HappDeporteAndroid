@@ -7,7 +7,6 @@ import java.time.LocalTime;
  */
 public class Team {
 
-
     private long id;
     private String category;
     private String competition;

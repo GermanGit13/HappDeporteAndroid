@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import com.google.android.material.badge.BadgeUtils;
 import com.svalero.happdeporteandroid.R;
 
 /**
@@ -64,11 +63,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
-        else if (item.getItemId() == R.id.view_map) { //Para cuando pulsan en la boton del mapa en el actionbar
-            Intent intent = new Intent(this, MainActivity.class); //donde nos manda al pinchar sobre el boton mapas en el action bar
-            startActivity(intent);
-            return true;
-        }
+//        else if (item.getItemId() == R.id.view_map) { //Para cuando pulsan en la boton del mapa en el actionbar
+//            Intent intent = new Intent(this, MainActivity.class); //donde nos manda al pinchar sobre el boton mapas en el action bar
+//            startActivity(intent);
+//            return true;
+//        }
         return false;
     }
 }

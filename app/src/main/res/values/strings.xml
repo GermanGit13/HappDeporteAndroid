@@ -4,4 +4,18 @@
     <string name="Add">Add</string>
     <string name="list_of_users">List of Coaches</string>
     <string name="list_of_matches">List of Matches</string>
+    <string name="view_map">View Maps</string>
+    <string name="preferences">Preferences</string>
+    <string name="details">Details</string>
+    <string name="delete">Delete</string>
+    <string name="register_match">Register Match</string>
+    <string name="category">Category:</string>
+    <string name="competition">Competition:</string>
+    <string name="cuota">Cuota:</string>
+    <string name="day_training">Day Training:</string>
+    <string name="start_training">Start Training:</string>
+    <string name="end_training">End Training:</string>
+    <string name="active">Active:</string>
+    <string name="coach">Coach:</string>
+    <string name="id">Id:</string>
 </resources>

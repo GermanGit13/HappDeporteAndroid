@@ -1,12 +1,8 @@
 package com.svalero.happdeporteandroid.domain;
 
-import androidx.room.ColumnInfo;
-
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Match {
-
 
     private long id;
     private String teamB;

@@ -1,7 +1,5 @@
 package com.svalero.happdeporteandroid.domain;
 
-import java.util.List;
-
 public class User {
 
     private long id;
