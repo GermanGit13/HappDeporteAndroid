@@ -1,6 +1,7 @@
 package com.svalero.happdeporteandroid.api;
 
 import com.svalero.happdeporteandroid.domain.Team;
+import com.svalero.happdeporteandroid.domain.User;
 
 import java.util.List;
 
@@ -14,5 +15,11 @@ public interface HappDeporteApiInterface {
 
     @GET("teams")
     Call<List<Team>> getTeams(); //devuelve una lista de equipos
+
+    @GET("users")
+    Call<List<User>> getUsers(); //devuelve una lista de usuarios
+
+    @GET("matches")
+    Call<List<Math>> getMatches(); //devuelve una lista de partidos
 
 }

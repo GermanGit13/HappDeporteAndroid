@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.svalero.happdeporteandroid.R;
-import com.svalero.happdeporteandroid.domain.Team;
+import com.svalero.happdeporteandroid.domain.User;
 
 import java.util.List;
 
@@ -21,20 +21,20 @@ import java.util.List;
  * al extender de la clase RecyclerView los @Override los añadira automáticamente para el patron Holder, solo añadiremos nosotros el 5)
  *
  */
-public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
 
     private Context context; // Activity en la que estamos
-    private List<Team> teamList;
-    private Team team;
+    private List<User> userList;
+    private User user;
 
     /**
      * 1) Constructor que creamos para pasarle los datos que queremos que pinte
      * el contexto y la lista de equipos
      * @param dataList Lista de equipos que le pasamos
      */
-    public TeamAdapter(Context context, List<Team> dataList) {
+    public UserAdapter(Context context, List<User> dataList) {
         this.context = context;
-        this.teamList = dataList;
+        this.userList = dataList;
     }
 
     /**
@@ -42,10 +42,10 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
      * Vista detalle de cada equipo
      */
     @Override
-    public TeamHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public UserHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.team_item, parent, false); // el layout team_item para cada equipo
-        return new TeamHolder(view); //Creamos un holder para cada una de las estructuras que infla el layout
+                .inflate(R.layout.user_item, parent, false); // el layout user_item para cada usuario
+        return new UserHolder(view); //Creamos un holder para cada una de las estructuras que infla el layout
     }
 
     /**
@@ -53,72 +53,64 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
      * es para poder recorrer en el bucle por cada elemento de la lista y poder pintarlo
      */
     @Override
-    public void onBindViewHolder(TeamHolder holder, int position) {
-//        holder.teamId.setText(teamList.get(position).getId());
-        holder.teamCategory.setText(teamList.get(position).getCategory());
-        holder.teamCompetition.setText(teamList.get(position).getCompetition());
-//        holder.teamCuota.setText(teamList.get(position).getCuota());
-        holder.teamDayTrain.setText(teamList.get(position).getDayTrain());
-        holder.teamStartTrain.setText(teamList.get(position).getStartTrain());
-        holder.teamEndTrain.setText(teamList.get(position).getEndTrain());
-//        holder.teamActive.setText(teamList.get(position).isActive());
-//        holder.teamUser.setText(teamList.get(position).getUser().getUsername());
+    public void onBindViewHolder(UserHolder holder, int position) {
+//        holder.userId.setText(userList.get(position).getId());
+        holder.userName.setText(userList.get(position).getName());
+        holder.userSurname.setText(userList.get(position).getSurname());
+        holder.userAddress.setText(userList.get(position).getAddress());
+        holder.userMail.setText(userList.get(position).getMail());
+        holder.userPhone.setText(userList.get(position).getPhone());
+
 
     }
 
     /**
      * Metodo que estamos obligados a hacer para que devuelva el número de elementos y android pueda hacer sus calculos y pintar xtodo en base a esos calculos
-     *
-     * @return
      */
     @Override
     public int getItemCount() {
-        return teamList.size(); //devolvemos el tamaño de la lista
+        return userList.size(); //devolvemos el tamaño de la lista
     }
 
     /**
      * 5) Holder son las estructuras que contienen los datos y los rellenan luego
      * Creamos todos los componentes que tenemos
      */
-    public class TeamHolder extends RecyclerView.ViewHolder {
-//        public TextView teamId;
-        public TextView teamCategory;
-        public TextView teamCompetition;
-//        public TextView teamCuota;
-        public TextView teamDayTrain;
-        public TextView teamStartTrain;
-        public TextView teamEndTrain;
-//        public TextView teamActive;
-        public TextView teamUser;
+    public class UserHolder extends RecyclerView.ViewHolder {
+//        public TextView userId;
+        public TextView userName;
+        public TextView userSurname;
+        public TextView userAddress;
+        public TextView userMail;
+        public TextView userPhone;
+//        public TextView userActive;
 
-        public Button detailsTeamButton;
-        //        public Button modifyTeamButton;
-        public Button deleteTeamButton;
-        public Button matchTeamButton; //Para crear un partido asociado a un equipo
+        public Button detailsUserButton;
+        //        public Button modifyUserButton;
+        public Button deleteUserButton;
+        public Button team_user_button; //Para crear un partido asociado a un equipo
 
         public View parentView; //vista padre - como el recyclerView
 
         /**
          * 5) Consturctor del Holder
          */
-        public TeamHolder(View view) {
+        public UserHolder(View view) {
             super(view); //Vista padre
             parentView = view; //Guardamos el componente padre
 
-//            teamId = view.findViewById(R.id.team_id);
-            teamCategory = view.findViewById(R.id.team_category);
-            teamCompetition = view.findViewById(R.id.team_competition);
-//            teamCuota = view.findViewById(R.id.team_cuota);
-            teamDayTrain = view.findViewById(R.id.team_day_train);
-            teamStartTrain = view.findViewById(R.id.team_start_train);
-            teamEndTrain = view.findViewById(R.id.team_end_train);
-//            teamActive = view.findViewById(R.id.team_active);
-//            teamUser = view.findViewById(R.id.team_user);
+//            userId = view.findViewById(R.id.user_id);
+            userName = view.findViewById(R.id.user_name);
+            userSurname = view.findViewById(R.id.user_surname);
+            userAddress = view.findViewById(R.id.user_address);
+            userMail = view.findViewById(R.id.user_mail);
+            userPhone = view.findViewById(R.id.user_phone);
+//            userActive = view.findViewById(R.id.user_active);
 
-            detailsTeamButton = view.findViewById(R.id.details_team_button);
-//            modifyTeamButton = view.findViewById(R.id.modify_team_button); //De momento en está vista no voy a modificar
-            deleteTeamButton = view.findViewById(R.id.delete_team_button);
-            matchTeamButton = view.findViewById(R.id.match_team_button);
+            detailsUserButton = view.findViewById(R.id.delete_user_button);
+//            modifyUserButton = view.findViewById(R.id.modify_user_button); //De momento en está vista no voy a modificar
+            deleteUserButton = view.findViewById(R.id.delete_user_button);
+            team_user_button = view.findViewById(R.id.team_user_button);
 
             //TODO añadir opción que realizarán los botones
 //            //Para decirle que hace el boton cuando pulsamos sobre el

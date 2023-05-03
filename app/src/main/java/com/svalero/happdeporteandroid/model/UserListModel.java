@@ -6,7 +6,9 @@ import android.util.Log;
 import com.svalero.happdeporteandroid.api.HappDeporteApi;
 import com.svalero.happdeporteandroid.api.HappDeporteApiInterface;
 import com.svalero.happdeporteandroid.contract.TeamListContract;
+import com.svalero.happdeporteandroid.contract.UserListContract;
 import com.svalero.happdeporteandroid.domain.Team;
+import com.svalero.happdeporteandroid.domain.User;
 
 import java.util.List;
 
@@ -15,13 +17,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- *Implementamos el contract TeamListContract.Model
+ *Implementamos el contract UserListContract.Model
  */
-public class TeamListModel implements TeamListContract.Model {
+public class UserListModel implements UserListContract.Model {
 
     private Context context; //para poder pasarle el contexto de la aplicacion
 
-    public TeamListModel(Context context) {
+    public UserListModel(Context context) {
         this.context = context;
     }
 
@@ -29,22 +31,22 @@ public class TeamListModel implements TeamListContract.Model {
      * Sustituimos la llamada a la BBDD por la llamada a la API
      */
     @Override
-    public void loadAllTeams(OnLoadTeamsListener listener) {
+    public void loadAllUsers(OnLoadUserListener listener) {
         //Nos devuelve una instancia de happDeporteApi como la definimos en TodoApiInterface, tiene los métodos que usamos para comunicarnos con la API
         HappDeporteApiInterface happDeporteApi = HappDeporteApi.buildInstance();
-        Call<List<Team>> callTeams = happDeporteApi.getTeams(); //Para realizar la llamada y user el getTeams definido
-        Log.d("teams", "Llamada desde el model"); //Para depurar errores y ver si avanza o donde se para
-        callTeams.enqueue(new Callback<List<Team>>() {
+        Call<List<User>> callUsers = happDeporteApi.getUsers(); //Para realizar la llamada y user el getTeams definido
+        Log.d("users", "Llamada desde el model"); //Para depurar errores y ver si avanza o donde se para
+        callUsers.enqueue(new Callback<List<User>>() {
             @Override
-            public void onResponse(Call<List<Team>> call, Response<List<Team>> response) {
-                Log.d("teams", "Llamada desde el model Ok"); //linea para depurar y ver que pasa
-                List<Team> teams = response.body(); //Metemos la respuesta en una lista
-                listener.onLoadTasksSuccess(teams); //recibimos la lista por el listener
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                Log.d("user", "Llamada desde el model Ok"); //linea para depurar y ver que pasa
+                List<User> users = response.body(); //Metemos la respuesta en una lista
+                listener.onLoadTasksSuccess(users); //recibimos la lista por el listener
             }
 
             @Override
-            public void onFailure(Call<List<Team>> call, Throwable t) {
-                Log.d("teams", "Llamada desde model error"); //linea para depurar y ver que pasa
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                Log.d("users", "Llamada desde model error"); //linea para depurar y ver que pasa
                 t.printStackTrace();
                 String message = "Error invocando a la operación";
                 listener.onLoadTasksError(message); //recibimos los mensajes de error por listener

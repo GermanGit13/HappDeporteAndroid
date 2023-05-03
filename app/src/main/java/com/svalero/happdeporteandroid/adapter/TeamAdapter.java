@@ -58,11 +58,11 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
         holder.teamCategory.setText(teamList.get(position).getCategory());
         holder.teamCompetition.setText(teamList.get(position).getCompetition());
 //        holder.teamCuota.setText(teamList.get(position).getCuota());
-//        holder.teamDayTrain.setText(teamList.get(position).getDayTrain());
-//        holder.teamStartTrain.setText(teamList.get(position).getStartTrain());
-//        holder.teamEndTrain.setText(teamList.get(position).getEndTrain());
+        holder.teamDayTrain.setText(teamList.get(position).getDayTrain());
+        holder.teamStartTrain.setText(teamList.get(position).getStartTrain());
+        holder.teamEndTrain.setText(teamList.get(position).getEndTrain());
 //        holder.teamActive.setText(teamList.get(position).isActive());
-//        holder.teamUser.setText(teamList.get(position).getUser());
+//        holder.teamUser.setText(teamList.get(position).getUser().getUsername());
 
     }
 
@@ -85,11 +85,11 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
         public TextView teamCategory;
         public TextView teamCompetition;
 //        public TextView teamCuota;
-//        public TextView teamDayTrain;
-//        public TextView teamStartTrain;
-//        public TextView teamEndTrain;
+        public TextView teamDayTrain;
+        public TextView teamStartTrain;
+        public TextView teamEndTrain;
 //        public TextView teamActive;
-//        public TextView teamUser;
+        public TextView teamUser;
 
         public Button detailsTeamButton;
         //        public Button modifyTeamButton;
@@ -109,9 +109,9 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
             teamCategory = view.findViewById(R.id.team_category);
             teamCompetition = view.findViewById(R.id.team_competition);
 //            teamCuota = view.findViewById(R.id.team_cuota);
-//            teamDayTrain = view.findViewById(R.id.team_day_train);
-//            teamStartTrain = view.findViewById(R.id.team_start_train);
-//            teamEndTrain = view.findViewById(R.id.team_end_train);
+            teamDayTrain = view.findViewById(R.id.team_day_train);
+            teamStartTrain = view.findViewById(R.id.team_start_train);
+            teamEndTrain = view.findViewById(R.id.team_end_train);
 //            teamActive = view.findViewById(R.id.team_active);
 //            teamUser = view.findViewById(R.id.team_user);
 

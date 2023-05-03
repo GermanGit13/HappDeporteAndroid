@@ -40,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, TeamListView.class); //donde nos manda al pinchar sobre el boton mapas en el action bar
             startActivity(intent);
         });
+
+        listUsers = findViewById(R.id.list_user_main_button); //botón declarado en el layout
+        listUsers.setOnClickListener(view -> {
+            Intent intent = new Intent(this, UserListView.class); //donde nos manda al pinchar sobre el boton mapas en el action bar
+            startActivity(intent);
+        });
     }
 
 

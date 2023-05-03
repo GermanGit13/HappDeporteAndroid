@@ -12,8 +12,8 @@ public class Team {
     private String competition;
     private double cuota;
     private String dayTrain;
-    private LocalTime startTrain;
-    private LocalTime endTrain;
+    private String startTrain;
+    private String endTrain;
     private boolean active;
     private User user;
 
@@ -22,7 +22,7 @@ public class Team {
     /**
      *Constructor para modificar Equipos
      */
-    public Team(long id, String category, String competition, double cuota, String dayTrain, LocalTime startTrain, LocalTime endTrain, boolean active, User user) {
+    public Team(long id, String category, String competition, double cuota, String dayTrain, String startTrain, String endTrain, boolean active, User user) {
         this.id = id;
         this.category = category;
         this.competition = competition;
@@ -37,7 +37,7 @@ public class Team {
     /**
      *Constructor para registrar Equipos
      */
-    public Team(String category, String competition, double cuota, String dayTrain, LocalTime startTrain, LocalTime endTrain, boolean active, User user) {
+    public Team(String category, String competition, double cuota, String dayTrain, String startTrain, String endTrain, boolean active, User user) {
         this.category = category;
         this.competition = competition;
         this.cuota = cuota;
@@ -88,19 +88,19 @@ public class Team {
         this.dayTrain = dayTrain;
     }
 
-    public LocalTime getStartTrain() {
+    public String getStartTrain() {
         return startTrain;
     }
 
-    public void setStartTrain(LocalTime startTrain) {
+    public void setStartTrain(String startTrain) {
         this.startTrain = startTrain;
     }
 
-    public LocalTime getEndTrain() {
+    public String getEndTrain() {
         return endTrain;
     }
 
-    public void setEndTrain(LocalTime endTrain) {
+    public void setEndTrain(String endTrain) {
         this.endTrain = endTrain;
     }
 
