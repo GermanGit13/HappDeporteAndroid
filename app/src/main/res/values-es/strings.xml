@@ -7,16 +7,16 @@
     <string name="list_of_matches">Listado de Partidos</string>
     <string name="view_map">Ver Mapa</string>
     <string name="preferences">Preferencias</string>
-    <string name="details">Details</string>
-    <string name="delete">Delete</string>
-    <string name="register_match">Register Match</string>
-    <string name="category">Category:</string>
-    <string name="competition">Competition:</string>
+    <string name="details">Detalles</string>
+    <string name="delete">Borrar</string>
+    <string name="register_match">Añadir Partido</string>
+    <string name="category">Categoría:</string>
+    <string name="competition">Competición:</string>
     <string name="cuota">Cuota:</string>
-    <string name="day_training">Day Training:</string>
-    <string name="start_training">Start Training:</string>
-    <string name="end_training">End Training:</string>
-    <string name="active">Active:</string>
-    <string name="coach">Coach:</string>
+    <string name="day_training">Días de Entrenamiento:</string>
+    <string name="start_training">Hora comienzo Entrenamiento:</string>
+    <string name="end_training">Hora fin entrenamiento:</string>
+    <string name="active">Activo:</string>
+    <string name="coach">Entrenador:</string>
     <string name="id">Id:</string>
 </resources>

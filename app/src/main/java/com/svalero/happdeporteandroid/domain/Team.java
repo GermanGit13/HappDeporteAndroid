@@ -15,11 +15,12 @@ public class Team {
     private LocalTime startTrain;
     private LocalTime endTrain;
     private boolean active;
+    private User user;
 
     /**
      *Constructor para modificar Equipos
      */
-    public Team(long id, String category, String competition, double cuota, String dayTrain, LocalTime startTrain, LocalTime endTrain, boolean active) {
+    public Team(long id, String category, String competition, double cuota, String dayTrain, LocalTime startTrain, LocalTime endTrain, boolean active, User user) {
         this.id = id;
         this.category = category;
         this.competition = competition;
@@ -28,12 +29,13 @@ public class Team {
         this.startTrain = startTrain;
         this.endTrain = endTrain;
         this.active = active;
+        this.user = user;
     }
 
     /**
      *Constructor para registrar Equipos
      */
-    public Team(String category, String competition, double cuota, String dayTrain, LocalTime startTrain, LocalTime endTrain, boolean active) {
+    public Team(String category, String competition, double cuota, String dayTrain, LocalTime startTrain, LocalTime endTrain, boolean active, User user) {
         this.category = category;
         this.competition = competition;
         this.cuota = cuota;
@@ -41,6 +43,7 @@ public class Team {
         this.startTrain = startTrain;
         this.endTrain = endTrain;
         this.active = active;
+        this.user = user;
     }
 
     public long getId() {
@@ -105,5 +108,13 @@ public class Team {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
