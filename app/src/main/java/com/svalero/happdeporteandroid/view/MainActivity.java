@@ -34,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        listTeam = findViewById(R.id.list_team_main_button); //botón declarado en el layout
+        listTeam.setOnClickListener(view -> {
+            Intent intent = new Intent(this, TeamListView.class); //donde nos manda al pinchar sobre el boton mapas en el action bar
+            startActivity(intent);
+        });
     }
 
 

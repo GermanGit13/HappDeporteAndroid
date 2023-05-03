@@ -58,7 +58,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
         holder.teamCategory.setText(teamList.get(position).getCategory());
         holder.teamCompetition.setText(teamList.get(position).getCompetition());
 //        holder.teamCuota.setText(teamList.get(position).getCuota());
-        holder.teamDayTrain.setText(teamList.get(position).getDayTrain());
+//        holder.teamDayTrain.setText(teamList.get(position).getDayTrain());
 //        holder.teamStartTrain.setText(teamList.get(position).getStartTrain());
 //        holder.teamEndTrain.setText(teamList.get(position).getEndTrain());
 //        holder.teamActive.setText(teamList.get(position).isActive());
@@ -81,15 +81,15 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
      * Creamos todos los componentes que tenemos
      */
     public class TeamHolder extends RecyclerView.ViewHolder {
-        public TextView teamId;
+//        public TextView teamId;
         public TextView teamCategory;
         public TextView teamCompetition;
-        public TextView teamCuota;
-        public TextView teamDayTrain;
-        public TextView teamStartTrain;
-        public TextView teamEndTrain;
-        public TextView teamActive;
-        public TextView teamUser;
+//        public TextView teamCuota;
+//        public TextView teamDayTrain;
+//        public TextView teamStartTrain;
+//        public TextView teamEndTrain;
+//        public TextView teamActive;
+//        public TextView teamUser;
 
         public Button detailsTeamButton;
         //        public Button modifyTeamButton;
@@ -105,15 +105,15 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
             super(view); //Vista padre
             parentView = view; //Guardamos el componente padre
 
-            teamId = view.findViewById(R.id.team_id);
+//            teamId = view.findViewById(R.id.team_id);
             teamCategory = view.findViewById(R.id.team_category);
             teamCompetition = view.findViewById(R.id.team_competition);
-            teamCuota = view.findViewById(R.id.team_cuota);
-            teamDayTrain = view.findViewById(R.id.team_day_train);
-            teamStartTrain = view.findViewById(R.id.team_start_train);
-            teamEndTrain = view.findViewById(R.id.team_end_train);
-            teamActive = view.findViewById(R.id.team_active);
-            teamUser = view.findViewById(R.id.team_user);
+//            teamCuota = view.findViewById(R.id.team_cuota);
+//            teamDayTrain = view.findViewById(R.id.team_day_train);
+//            teamStartTrain = view.findViewById(R.id.team_start_train);
+//            teamEndTrain = view.findViewById(R.id.team_end_train);
+//            teamActive = view.findViewById(R.id.team_active);
+//            teamUser = view.findViewById(R.id.team_user);
 
             detailsTeamButton = view.findViewById(R.id.details_team_button);
 //            modifyTeamButton = view.findViewById(R.id.modify_team_button); //De momento en está vista no voy a modificar

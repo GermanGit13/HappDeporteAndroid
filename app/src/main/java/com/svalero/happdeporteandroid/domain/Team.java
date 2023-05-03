@@ -17,6 +17,8 @@ public class Team {
     private boolean active;
     private User user;
 
+    public Team() {}
+
     /**
      *Constructor para modificar Equipos
      */
