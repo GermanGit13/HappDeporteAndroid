@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HappDeporteAndroid</string>
+    <string name="list_of_teams">Listado de Equipos</string>
+    <string name="Add">Añadir</string>
+    <string name="list_of_users">Listado de Entrenadores</string>
+    <string name="list_of_matches">Listado de Partidos</string>
+</resources>

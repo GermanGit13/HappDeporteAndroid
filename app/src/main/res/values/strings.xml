@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HappDeporteAndroid</string>
+    <string name="list_of_teams">List of Teams</string>
+    <string name="Add">Add</string>
+    <string name="list_of_users">List of Coaches</string>
+    <string name="list_of_matches">List of Matches</string>
 </resources>
