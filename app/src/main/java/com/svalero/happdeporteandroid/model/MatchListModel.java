@@ -23,9 +23,10 @@ public class MatchListModel implements MatchListContract.Model {
 
     private Context context; //para poder pasarle el contexto de la aplicacion
 
-    public MatchListModel(Context context) {
-        this.context = context;
-    }
+    //No lo usamos por que le pasamos el contexto desde el presenter para usar los mapas
+//    public MatchListModel(Context context) {
+//        this.context = context;
+//    }
 
     /**
      * Sustituimos la llamada a la BBDD por la llamada a la API

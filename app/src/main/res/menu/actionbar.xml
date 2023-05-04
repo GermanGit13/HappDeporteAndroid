@@ -9,6 +9,11 @@
         android:title="@string/view_map"
         app:showAsAction="always" />
     <item
+        android:id="@+id/go_home"
+        android:icon="@drawable/ic_round_home_24"
+        android:title="@string/home"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/go_preferences"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/preferences"

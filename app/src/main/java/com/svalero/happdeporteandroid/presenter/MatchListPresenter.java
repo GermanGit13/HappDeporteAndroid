@@ -18,18 +18,21 @@ import java.util.List;
 public class MatchListPresenter implements MatchListContract.Presenter,
     MatchListContract.Model.OnLoadMatchListener{
 
-    /**
-     * Le pasamos el model y la view ya que es el único que conoce a ambos
-     */
     private MatchListModel model;
-    private MatchListView view;
+    private MatchListContract.View view; //le decimos que le pasamos un TaskListContract.View para que acepte varias activity distintas
+
+//    /**
+//     * Le pasamos el model y la view ya que es el único que conoce a ambos
+//     */
+//    private MatchListModel model;
+//    private MatchListView view;
 
     /**
      * Constructor para pasarle ambas cosas
      */
-    public MatchListPresenter(MatchListView view) {
+    public MatchListPresenter(MatchListContract.View view) {
         this.view = view; //le pasamos la vista desde el presenter al modelo
-        this.model = new MatchListModel(view.getApplicationContext()); //le pasamos el contexto
+        this.model = new MatchListModel();
     }
 
     /**

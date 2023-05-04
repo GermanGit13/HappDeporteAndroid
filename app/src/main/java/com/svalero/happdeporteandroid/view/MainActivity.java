@@ -76,16 +76,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         //TODO cambiar el botón de las preferencias y Mapas para llevarlo a su activity
-        if (item.getItemId() == R.id.go_preferences) { //Evaluar a que opcion hemos pichado
+        if (item.getItemId() == R.id.go_home) { //Evaluar a que opcion hemos pichado
             Intent intent = new Intent(this, MainActivity.class); //donde nos manda al pinchar sobre el boton + en el action bar
             startActivity(intent);
             return true;
         }
-//        else if (item.getItemId() == R.id.view_map) { //Para cuando pulsan en la boton del mapa en el actionbar
-//            Intent intent = new Intent(this, MainActivity.class); //donde nos manda al pinchar sobre el boton mapas en el action bar
-//            startActivity(intent);
-//            return true;
-//        }
+        else if (item.getItemId() == R.id.view_map) { //Para cuando pulsan en la boton del mapa en el actionbar
+            Intent intent = new Intent(this, MapsActivity.class); //donde nos manda al pinchar sobre el boton mapas en el action bar
+            startActivity(intent);
+            return true;
+        }
         return false;
     }
 }

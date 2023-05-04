@@ -100,7 +100,7 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.MatchHolder>
             parentView = view; //Guardamos el componente padre
 
 //            userId = view.findViewById(R.id.user_id);
-            teamB = view.findViewById(R.id.match_team);
+            teamB = view.findViewById(R.id.match_team_b);
             markerA = view.findViewById(R.id.match_markerA);
             markerB = view.findViewById(R.id.match_markerB);
             analysis = view.findViewById(R.id.match_analysis);
