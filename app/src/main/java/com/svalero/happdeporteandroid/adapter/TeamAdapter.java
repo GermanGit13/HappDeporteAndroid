@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -57,11 +58,11 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
 //        holder.teamId.setText(teamList.get(position).getId());
         holder.teamCategory.setText(teamList.get(position).getCategory());
         holder.teamCompetition.setText(teamList.get(position).getCompetition());
-//        holder.teamCuota.setText(teamList.get(position).getCuota());
+        holder.teamCuota.setText(String.valueOf(teamList.get(position).getCuota())); //Proviene de un double
         holder.teamDayTrain.setText(teamList.get(position).getDayTrain());
         holder.teamStartTrain.setText(teamList.get(position).getStartTrain());
         holder.teamEndTrain.setText(teamList.get(position).getEndTrain());
-//        holder.teamActive.setText(teamList.get(position).isActive());
+        holder.teamActive.setChecked(teamList.get(position).isActive()); //Proviene de un boolean acaba en un checkbox
 //        holder.teamUser.setText(teamList.get(position).getUser().getUsername());
 
     }
@@ -84,11 +85,11 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
 //        public TextView teamId;
         public TextView teamCategory;
         public TextView teamCompetition;
-//        public TextView teamCuota;
+        public TextView teamCuota;
         public TextView teamDayTrain;
         public TextView teamStartTrain;
         public TextView teamEndTrain;
-//        public TextView teamActive;
+        public CheckBox teamActive;
         public TextView teamUser;
 
         public Button detailsTeamButton;
@@ -108,11 +109,11 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
 //            teamId = view.findViewById(R.id.team_id);
             teamCategory = view.findViewById(R.id.team_category);
             teamCompetition = view.findViewById(R.id.team_competition);
-//            teamCuota = view.findViewById(R.id.team_cuota);
+            teamCuota = view.findViewById(R.id.team_cuota);
             teamDayTrain = view.findViewById(R.id.team_day_train);
             teamStartTrain = view.findViewById(R.id.team_start_train);
             teamEndTrain = view.findViewById(R.id.team_end_train);
-//            teamActive = view.findViewById(R.id.team_active);
+            teamActive = view.findViewById(R.id.team_active);
 //            teamUser = view.findViewById(R.id.team_user);
 
             detailsTeamButton = view.findViewById(R.id.details_team_button);

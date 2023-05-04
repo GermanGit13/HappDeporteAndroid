@@ -24,4 +24,11 @@
     <string name="mail">Mail</string>
     <string name="phone">Phone</string>
     <string name="addTeamToCoach">Register Team this Coach</string>
+    <string name="opponent_team">Opponent team:</string>
+    <string name="team">Team:</string>
+    <string name="local_marker">Local Marker:</string>
+    <string name="opponent_marker">Opponent Marker:</string>
+    <string name="analysis">Analysis:</string>
+    <string name="day">Day:</string>
+    <string name="hour">Hour:</string>
 </resources>

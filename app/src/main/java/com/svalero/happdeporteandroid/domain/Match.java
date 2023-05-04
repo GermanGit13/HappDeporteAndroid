@@ -9,24 +9,24 @@ public class Match {
     private int markerA;
     private int markerB;
     private String analysis;
-    private String location;
     private double latitude; //para poder ubicar en el mapa
     private double longitude; //para poder ubicar en el mapa
-    private LocalTime hourMatch;
+    private String dateMatch;
+    private String hourMatch;
     private Team teamInMatch;
 
     /**
      *Constructor para modificar Partidos
      */
-    public Match(long id, String teamB, int markerA, int markerB, String analysis, String location, double latitude, double longitude, LocalTime hourMatch, Team teamInMatch) {
+    public Match(long id, String teamB, int markerA, int markerB, String analysis, double latitude, double longitude, String dateMatch, String hourMatch, Team teamInMatch) {
         this.id = id;
         this.teamB = teamB;
         this.markerA = markerA;
         this.markerB = markerB;
         this.analysis = analysis;
-        this.location = location;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.dateMatch = dateMatch;
         this.hourMatch = hourMatch;
         this.teamInMatch = teamInMatch;
     }
@@ -35,14 +35,14 @@ public class Match {
     /**
      *Constructor para registrar Partidos
      */
-    public Match(String teamB, int markerA, int markerB, String analysis, String location, double latitude, double longitude, LocalTime hourMatch, Team teamInMatch) {
+    public Match(String teamB, int markerA, int markerB, String analysis, String location, double latitude, double longitude, String dateMatch, String hourMatch, Team teamInMatch) {
         this.teamB = teamB;
         this.markerA = markerA;
         this.markerB = markerB;
         this.analysis = analysis;
-        this.location = location;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.dateMatch = dateMatch;
         this.hourMatch = hourMatch;
         this.teamInMatch = teamInMatch;
     }
@@ -87,14 +87,6 @@ public class Match {
         this.analysis = analysis;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
     public double getLatitude() {
         return latitude;
     }
@@ -111,11 +103,19 @@ public class Match {
         this.longitude = longitude;
     }
 
-    public LocalTime getHourMatch() {
+    public String getDateMatch() {
+        return dateMatch;
+    }
+
+    public void setDateMatch(String dateMatch) {
+        this.dateMatch = dateMatch;
+    }
+
+    public String getHourMatch() {
         return hourMatch;
     }
 
-    public void setHourMatch(LocalTime hourMatch) {
+    public void setHourMatch(String hourMatch) {
         this.hourMatch = hourMatch;
     }
 

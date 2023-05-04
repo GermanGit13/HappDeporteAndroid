@@ -36,13 +36,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewCategory"
+                android:id="@+id/textViewTeam"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@string/category" />
+                android:text="@string/team" />
 
             <TextView
-                android:id="@+id/team_category"
+                android:id="@+id/match_team"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -55,13 +55,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewCompetition"
+                android:id="@+id/textViewTeamB"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@string/competition" />
+                android:text="@string/opponent_team" />
 
             <TextView
-                android:id="@+id/team_competition"
+                android:id="@+id/match_team_b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -74,13 +74,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewCuota"
+                android:id="@+id/textViewMarkerA"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@string/cuota" />
+                android:text="@string/local_marker" />
 
             <TextView
-                android:id="@+id/team_cuota"
+                android:id="@+id/match_markerA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -93,13 +93,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewDay"
+                android:id="@+id/textViewMarkerB"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@string/day_training" />
+                android:text="@string/opponent_marker" />
 
             <TextView
-                android:id="@+id/team_day_train"
+                android:id="@+id/match_markerB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -112,13 +112,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewStart"
+                android:id="@+id/textViewAnalysis"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@string/start_training" />
+                android:text="@string/analysis" />
 
             <TextView
-                android:id="@+id/team_start_train"
+                android:id="@+id/match_analysis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -131,13 +131,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewEnd"
+                android:id="@+id/textDateMatch"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@string/end_training" />
+                android:text="@string/day" />
 
             <TextView
-                android:id="@+id/team_end_train"
+                android:id="@+id/match_dateMatch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -150,38 +150,19 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textViewActive"
+                android:id="@+id/textViewHourMatch"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@string/active" />
+                android:text="@string/hour" />
 
-            <CheckBox
-                android:id="@+id/team_active"
+            <TextView
+                android:id="@+id/match_hourMatch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="false"
                 android:textColor="#000000"
                 android:textSize="16sp" />
         </LinearLayout>
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="horizontal">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/textViewCoach"-->
-<!--                android:layout_width="100dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/coach" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/team_user"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textColor="#000000"-->
-<!--                android:textSize="16sp" />-->
-<!--        </LinearLayout>-->
 
     </LinearLayout>
 
@@ -191,7 +172,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/details_team_button"
+            android:id="@+id/details_match_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -202,7 +183,7 @@
             app:icon="?android:attr/actionModeFindDrawable" />
 
         <Button
-            android:id="@+id/delete_team_button"
+            android:id="@+id/delete_match_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -214,20 +195,20 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="1"-->
+<!--        android:orientation="vertical">-->
 
-        <Button
-            android:id="@+id/match_team_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="5dp"
-            android:text="@string/register_match"
-            app:icon="@drawable/ic_baseline_sports_kabaddi_24" />
-    </LinearLayout>
+<!--        <Button-->
+<!--            android:id="@+id/team_user_button"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:padding="5dp"-->
+<!--            android:text="@string/addTeamToCoach"-->
+<!--            app:icon="@drawable/ic_baseline_sports_baseball_24" />-->
+<!--    </LinearLayout>-->
 
 </LinearLayout>

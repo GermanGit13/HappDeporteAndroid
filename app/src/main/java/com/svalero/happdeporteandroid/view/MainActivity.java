@@ -46,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, UserListView.class); //donde nos manda al pinchar sobre el boton mapas en el action bar
             startActivity(intent);
         });
+
+        listMatches = findViewById(R.id.list_match_main_button);
+        listMatches.setOnClickListener(view -> {
+            Intent intent = new Intent(this, MatchListView.class);
+            startActivity(intent);
+        });
     }
 
 

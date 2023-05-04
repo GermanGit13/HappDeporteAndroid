@@ -25,4 +25,11 @@
     <string name="mail">Mail:</string>
     <string name="phone">Teléfono:</string>
     <string name="addTeamToCoach">Registrar equipo a este Entrenador</string>
+    <string name="opponent_team">Opponent team:</string>
+    <string name="team">Team:</string>
+    <string name="local_marker">Local Marker:</string>
+    <string name="opponent_marker">Opponent Marker:</string>
+    <string name="analysis">Analysis:</string>
+    <string name="day">Day:</string>
+    <string name="hour">Hour:</string>
 </resources>

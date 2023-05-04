@@ -11,41 +11,42 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.svalero.happdeporteandroid.R;
+import com.svalero.happdeporteandroid.domain.Match;
 import com.svalero.happdeporteandroid.domain.User;
 
 import java.util.List;
 
 /**
- * TeamAdapter: Es la clase en la que le explicamos a Android como pintar cada elemento en el RecyclerView
+ * MatchAdapter: Es la clase en la que le explicamos a Android como pintar cada elemento en el RecyclerView
  * Patron Holder: 1) Constructor - 2) onCreateViewHolder - 3) onBindViewHolder - 4) getItemCount - 5) Y la estructura SuperheroHolder
  * al extender de la clase RecyclerView los @Override los añadira automáticamente para el patron Holder, solo añadiremos nosotros el 5)
  *
  */
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
+public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.MatchHolder> {
 
     private Context context; // Activity en la que estamos
-    private List<User> userList;
-    private User user;
+    private List<Match> matchList;
+    private Match match;
 
     /**
      * 1) Constructor que creamos para pasarle los datos que queremos que pinte
      * el contexto y la lista de equipos
-     * @param dataList Lista de equipos que le pasamos
+     * @param dataList Lista de partidos que le pasamos
      */
-    public UserAdapter(Context context, List<User> dataList) {
+    public MatchAdapter(Context context, List<Match> dataList) {
         this.context = context;
-        this.userList = dataList;
+        this.matchList = dataList;
     }
 
     /**
-     * Metodo con el que Android va a inflar, va a crear cada estructura del layout donde irán los datos de cada equipo.
-     * Vista detalle de cada equipo
+     * Metodo con el que Android va a inflar, va a crear cada estructura del layout donde irán los datos de cada partido.
+     * Vista detalle de cada partido
      */
     @Override
-    public UserHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MatchHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.user_item, parent, false); // el layout user_item para cada usuario
-        return new UserHolder(view); //Creamos un holder para cada una de las estructuras que infla el layout
+                .inflate(R.layout.match_item, parent, false); // el layout match_item para cada partido
+        return new MatchHolder(view); //Creamos un holder para cada una de las estructuras que infla el layout
     }
 
     /**
@@ -53,15 +54,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
      * es para poder recorrer en el bucle por cada elemento de la lista y poder pintarlo
      */
     @Override
-    public void onBindViewHolder(UserHolder holder, int position) {
+    public void onBindViewHolder(MatchHolder holder, int position) {
 //        holder.userId.setText(userList.get(position).getId());
-        holder.userName.setText(userList.get(position).getName());
-        holder.userSurname.setText(userList.get(position).getSurname());
-        holder.userAddress.setText(userList.get(position).getAddress());
-        holder.userMail.setText(userList.get(position).getMail());
-        holder.userPhone.setText(userList.get(position).getPhone());
-
-
+        holder.teamB.setText(matchList.get(position).getTeamB());
+        holder.markerA.setText(String.valueOf(matchList.get(position).getMarkerA())); //Proviene de un Int
+        holder.markerB.setText(String.valueOf(matchList.get(position).getMarkerB())); //Proviene de un Int
+        holder.analysis.setText(matchList.get(position).getAnalysis());
+        holder.dateMatch.setText(matchList.get(position).getDateMatch());
+        holder.hourMatch.setText(matchList.get(position).getHourMatch());
     }
 
     /**
@@ -69,48 +69,48 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
      */
     @Override
     public int getItemCount() {
-        return userList.size(); //devolvemos el tamaño de la lista
+        return matchList.size(); //devolvemos el tamaño de la lista
     }
 
     /**
      * 5) Holder son las estructuras que contienen los datos y los rellenan luego
      * Creamos todos los componentes que tenemos
      */
-    public class UserHolder extends RecyclerView.ViewHolder {
+    public class MatchHolder extends RecyclerView.ViewHolder {
 //        public TextView userId;
-        public TextView userName;
-        public TextView userSurname;
-        public TextView userAddress;
-        public TextView userMail;
-        public TextView userPhone;
-//        public TextView userActive;
+        public TextView teamB;
+        public TextView markerA;
+        public TextView markerB;
+        public TextView analysis;
+        public TextView dateMatch;
+        public TextView hourMatch;
 
-        public Button detailsUserButton;
+        public Button detailsMatchButton;
         //        public Button modifyUserButton;
-        public Button deleteUserButton;
-        public Button team_user_button; //Para crear un partido asociado a un equipo
+        public Button deleteMatchButton;
+//        public Button team_user_button; //Para crear un partido asociado a un equipo
 
         public View parentView; //vista padre - como el recyclerView
 
         /**
          * 5) Consturctor del Holder
          */
-        public UserHolder(View view) {
+        public MatchHolder(View view) {
             super(view); //Vista padre
             parentView = view; //Guardamos el componente padre
 
 //            userId = view.findViewById(R.id.user_id);
-            userName = view.findViewById(R.id.user_name);
-            userSurname = view.findViewById(R.id.user_surname);
-            userAddress = view.findViewById(R.id.user_address);
-            userMail = view.findViewById(R.id.user_mail);
-            userPhone = view.findViewById(R.id.user_phone);
-//            userActive = view.findViewById(R.id.user_active);
+            teamB = view.findViewById(R.id.match_team);
+            markerA = view.findViewById(R.id.match_markerA);
+            markerB = view.findViewById(R.id.match_markerB);
+            analysis = view.findViewById(R.id.match_analysis);
+            dateMatch = view.findViewById(R.id.match_dateMatch);
+            hourMatch = view.findViewById(R.id.match_hourMatch);
 
-            detailsUserButton = view.findViewById(R.id.details_user_button);
+            detailsMatchButton = view.findViewById(R.id.details_match_button);
 //            modifyUserButton = view.findViewById(R.id.modify_user_button); //De momento en está vista no voy a modificar
-            deleteUserButton = view.findViewById(R.id.delete_user_button);
-            team_user_button = view.findViewById(R.id.team_user_button);
+            deleteMatchButton = view.findViewById(R.id.delete_match_button);
+
 
             //TODO añadir opción que realizarán los botones
 //            //Para decirle que hace el boton cuando pulsamos sobre el
