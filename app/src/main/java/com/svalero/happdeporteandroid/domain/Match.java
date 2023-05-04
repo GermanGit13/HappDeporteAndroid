@@ -31,11 +31,24 @@ public class Match {
         this.teamInMatch = teamInMatch;
     }
 
+    /**
+     *Constructor para registrar Partidos por id en la URL de la API
+     */
+    public Match(String teamB, int markerA, int markerB, String analysis, double latitude, double longitude, String dateMatch, String hourMatch) {
+        this.teamB = teamB;
+        this.markerA = markerA;
+        this.markerB = markerB;
+        this.analysis = analysis;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.dateMatch = dateMatch;
+        this.hourMatch = hourMatch;
+    }
 
     /**
-     *Constructor para registrar Partidos
+     *Constructor para modificar Partidos
      */
-    public Match(String teamB, int markerA, int markerB, String analysis, String location, double latitude, double longitude, String dateMatch, String hourMatch, Team teamInMatch) {
+    public Match(String teamB, int markerA, int markerB, String analysis, double latitude, double longitude, String dateMatch, String hourMatch, Team teamInMatch) {
         this.teamB = teamB;
         this.markerA = markerA;
         this.markerB = markerB;

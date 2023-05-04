@@ -12,7 +12,6 @@ import com.svalero.happdeporteandroid.view.UserListView;
 import java.util.List;
 
 /**
- * Extiende de AppCompatActivity: donde hay un motón de código para usar por esos sobreescribimos los métodos de esta clase
  * Implementa el MatchListContract.View con sus métodos declarados en el contract
  */
 public class MatchListPresenter implements MatchListContract.Presenter,

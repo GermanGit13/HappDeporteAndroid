@@ -1,6 +1,7 @@
 package com.svalero.happdeporteandroid.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.svalero.happdeporteandroid.R;
 import com.svalero.happdeporteandroid.domain.Team;
+import com.svalero.happdeporteandroid.view.MatchRegisterView;
 
 import java.util.List;
 
@@ -129,8 +131,20 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
 ////            modifyBrigdeButton.setOnClickListener(v -> modifyBrigdeButton(getAdapterPosition()));
 //            // Eliminar un puente
 //            deleteBrigdeButton.setOnClickListener(v -> deleteBrigdeButton(getAdapterPosition()));
-//            //Añadir Inspeccion
-//            inspectionBrigdeButton.setOnClickListener(v -> inspectionBrigdeButton(getAdapterPosition()));
+            //Añadir Partido
+            matchTeamButton.setOnClickListener(v -> matchTeamButton(getAdapterPosition()));
         }
+    }
+
+    /**
+     * Métodos de los botones del layout para recoger el id y registrar una inspection
+     */
+    private void matchTeamButton(int position) {
+        Team team = teamList.get(position);
+
+        Intent intent = new Intent(context, MatchRegisterView.class);
+        intent.putExtra("teamInMatch", team.getId());
+        context.startActivity(intent);
+
     }
 }
