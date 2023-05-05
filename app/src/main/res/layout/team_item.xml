@@ -196,6 +196,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
+            android:backgroundTint="#020200"
             android:padding="5dp"
             android:text="@string/modify"
             android:textSize="12sp"
@@ -207,6 +208,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
+            android:backgroundTint="#020200"
             android:padding="5dp"
             android:text="@string/delete"
             android:textSize="12sp"
@@ -225,6 +227,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#020200"
             android:padding="5dp"
             android:text="@string/register_match"
             app:icon="@drawable/ic_baseline_sports_kabaddi_24" />

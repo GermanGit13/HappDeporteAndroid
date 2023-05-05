@@ -42,4 +42,8 @@
     <string name="add_hour">Add hour with format HH:MM</string>
     <string name="coach_id">Coach:</string>
     <string name="modify">Modify</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="remove_team">Remove Team</string>
+    <string name="yes">Yes</string>
+    <string name="no">Not</string>
 </resources>

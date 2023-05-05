@@ -185,6 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#020200"
             android:onClick="saveButtonTeam"
             android:text="@string/save"
             app:icon="@drawable/ic_baseline_data_saver_on_24" />
@@ -194,6 +195,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#020200"
             android:onClick="goBackButton"
             android:text="@string/cancel"
             app:icon="@drawable/ic_baseline_cancel_24" />

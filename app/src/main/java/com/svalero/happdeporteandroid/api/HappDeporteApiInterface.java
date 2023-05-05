@@ -29,7 +29,7 @@ public interface HappDeporteApiInterface {
     Call<User> aadUser(@Body User user);
 
     @DELETE("users/{id}")
-    Call<Void> deleteUser(@Path("id") long id);
+    Call<Void> deleteUser(@Path("id") long id); //Void porque la operación de borrado no devuelve nada
 
 
     /**
@@ -41,6 +41,9 @@ public interface HappDeporteApiInterface {
     @POST("users/{userId}/teams")
     Call<Team> addTeam(@Path("userId") long userId, @Body Team team); //Le pasamos el id del usuario por PathVariable y el cuerpo del equipo
 
+    @DELETE("teams/{teamId}")
+    Call<Void> deleteTeam(@Path("teamId") long teamId); //Void porque la operación de borrado no devuelve nada
+
     /**
      * Mactch
      */
@@ -49,4 +52,6 @@ public interface HappDeporteApiInterface {
 
     @POST("teams/{teamId}/matches")
     Call<Match> addMatch(@Path("teamId") long teamId, @Body Match match); //Le pasamos el id del equipo por PathVariable y el cuerpo del Partido
+    @DELETE("matches/{matchId}")
+    Call<Void> deleteMatch(@Path("matchId") long matchId); //Void porque la operación de borrado no devuelve nada
 }

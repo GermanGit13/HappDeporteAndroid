@@ -10,7 +10,7 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/go_home"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/home"
         android:title="@string/home"
         app:showAsAction="always" />
     <item

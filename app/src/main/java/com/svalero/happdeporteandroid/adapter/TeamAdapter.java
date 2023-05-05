@@ -1,5 +1,6 @@
 package com.svalero.happdeporteandroid.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,8 +13,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
+import com.mapbox.maps.Task;
 import com.svalero.happdeporteandroid.R;
+import com.svalero.happdeporteandroid.contract.TeamDeleteContract;
 import com.svalero.happdeporteandroid.domain.Team;
+import com.svalero.happdeporteandroid.presenter.TeamDeletePresenter;
 import com.svalero.happdeporteandroid.view.MatchRegisterView;
 
 import java.util.List;
@@ -22,13 +28,15 @@ import java.util.List;
  * TeamAdapter: Es la clase en la que le explicamos a Android como pintar cada elemento en el RecyclerView
  * Patron Holder: 1) Constructor - 2) onCreateViewHolder - 3) onBindViewHolder - 4) getItemCount - 5) Y la estructura SuperheroHolder
  * al extender de la clase RecyclerView los @Override los añadira automáticamente para el patron Holder, solo añadiremos nosotros el 5)
- *
+ * implements TeamDeleteContract.View porque hace las funciones de view para implentar sus metodos
  */
-public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
+public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> implements TeamDeleteContract.View {
 
     private Context context; // Activity en la que estamos
     private List<Team> teamList;
     private Team team;
+    private View snackBarView;
+    private TeamDeletePresenter presenter;
 
     /**
      * 1) Constructor que creamos para pasarle los datos que queremos que pinte
@@ -77,6 +85,18 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
     @Override
     public int getItemCount() {
         return teamList.size(); //devolvemos el tamaño de la lista
+    }
+
+    @Override
+    public void showError(String errorMessage) {
+        Snackbar.make(snackBarView, errorMessage,
+                BaseTransientBottomBar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showMessage(String message) {
+        Snackbar.make(snackBarView, message,
+                BaseTransientBottomBar.LENGTH_LONG).show();
     }
 
     /**
@@ -129,8 +149,8 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
 //            detailsBrigdeButton.setOnClickListener(v -> detailsBrigdeButton(getAdapterPosition())); //al pulsar lo llevamos al método detailsBrigdeButton
 ////            // Modificar un puente
 ////            modifyBrigdeButton.setOnClickListener(v -> modifyBrigdeButton(getAdapterPosition()));
-//            // Eliminar un puente
-//            deleteBrigdeButton.setOnClickListener(v -> deleteBrigdeButton(getAdapterPosition()));
+            // Eliminar un equipo
+            deleteTeamButton.setOnClickListener(v -> deleteTeam(getAdapterPosition()));
             //Añadir Partido
             matchTeamButton.setOnClickListener(v -> matchTeamButton(getAdapterPosition()));
         }
@@ -145,6 +165,21 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
         Intent intent = new Intent(context, MatchRegisterView.class);
         intent.putExtra("teamId", team.getId());
         context.startActivity(intent);
+    }
 
+    private void deleteTeam(int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(R.string.are_you_sure)
+                .setTitle(R.string.remove_team)
+                .setPositiveButton(R.string.yes, (dialog, id) -> {
+                    Team team = teamList.get(position);
+                    presenter.deleteTeam(team.getId());
+
+                    teamList.remove(position);
+                    notifyItemRemoved(position);
+                })
+                .setNegativeButton(R.string.no, (dialog, id) -> dialog.dismiss());
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

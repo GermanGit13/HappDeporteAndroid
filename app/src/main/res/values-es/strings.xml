@@ -41,6 +41,10 @@
     <string name="add_result_markerB">Añada un resultado al marcador visitante</string>
     <string name="add_date">Añada una fecha con formato YYYY-MM-DD</string>
     <string name="add_hour">Añada una hora con formato HH-MM</string>
-    <string name="coach_id">Coach:</string>
-    <string name="modify">Modify</string>
+    <string name="coach_id">Entrenador:</string>
+    <string name="modify">Modificar</string>
+    <string name="are_you_sure">¿Estás Serguro?</string>
+    <string name="remove_team">Eliminar Equipo</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
 </resources>
