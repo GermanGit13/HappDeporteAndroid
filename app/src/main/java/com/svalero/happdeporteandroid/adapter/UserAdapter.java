@@ -89,10 +89,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
         public TextView userPhone;
 //        public TextView userActive;
 
-        public Button detailsUserButton;
-        //        public Button modifyUserButton;
-        public Button deleteUserButton;
-        public Button teamUserButton; //Para crear un partido asociado a un equipo
+//        public Button detailsUserButton;
+        public Button modifyUserButton;
+//        public Button deleteUserButton;
+        public Button teamUserButton; //Para crear un equipo asociado a un usuario
 
         public View parentView; //vista padre - como el recyclerView
 
@@ -111,17 +111,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
             userPhone = view.findViewById(R.id.user_phone);
 //            userActive = view.findViewById(R.id.user_active);
 
-            detailsUserButton = view.findViewById(R.id.details_user_button);
-//            modifyUserButton = view.findViewById(R.id.modify_user_button); //De momento en está vista no voy a modificar
-            deleteUserButton = view.findViewById(R.id.delete_user_button);
+//            detailsUserButton = view.findViewById(R.id.details_user_button);
+            modifyUserButton = view.findViewById(R.id.modify_user_button); //De momento en está vista no voy a modificar
+//            deleteUserButton = view.findViewById(R.id.delete_user_button);
             teamUserButton = view.findViewById(R.id.team_user_button);
 
             //TODO añadir opción que realizarán los botones
 //            //Para decirle que hace el boton cuando pulsamos sobre el
 //            // Ver detalles de un puente
 //            detailsBrigdeButton.setOnClickListener(v -> detailsBrigdeButton(getAdapterPosition())); //al pulsar lo llevamos al método detailsBrigdeButton
-////            // Modificar un puente
-////            modifyBrigdeButton.setOnClickListener(v -> modifyBrigdeButton(getAdapterPosition()));
+//             Modificar un puente
+            modifyUserButton.setOnClickListener(v -> modifyUserButton(getAdapterPosition()));
 //            // Eliminar un puente
 //            deleteBrigdeButton.setOnClickListener(v -> deleteBrigdeButton(getAdapterPosition()));
             //Añadir Equipo a entrenador
@@ -136,8 +136,19 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
 
             Intent intent = new Intent(context, TeamRegisterView.class);
             intent.putExtra("userId", user.getId());
+            intent.putExtra("name", user.getName());
             context.startActivity(intent);
-
         }
+    }
+
+    /**
+     * Métodos de los botones del layout para recoger el id y registrar una inspection
+     */
+    private void modifyUserButton(int position) {
+        User user = userList.get(position);
+
+        Intent intent = new Intent(context, TeamRegisterView.class);
+        intent.putExtra("userId", user.getId());
+        context.startActivity(intent);
     }
 }

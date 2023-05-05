@@ -25,7 +25,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".UserregisterView"
+            android:name=".view.TeamRegisterView"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

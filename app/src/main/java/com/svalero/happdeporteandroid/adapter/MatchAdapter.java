@@ -107,7 +107,7 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.MatchHolder>
             dateMatch = view.findViewById(R.id.match_dateMatch);
             hourMatch = view.findViewById(R.id.match_hourMatch);
 
-            detailsMatchButton = view.findViewById(R.id.details_match_button);
+//            detailsMatchButton = view.findViewById(R.id.details_match_button);
 //            modifyUserButton = view.findViewById(R.id.modify_user_button); //De momento en está vista no voy a modificar
             deleteMatchButton = view.findViewById(R.id.delete_match_button);
 

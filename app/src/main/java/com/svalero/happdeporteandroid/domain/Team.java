@@ -22,11 +22,11 @@ public class Team {
     /**
      *Constructor para modificar Equipos
      */
-    public Team(long id, String category, String competition, double cuota, String dayTrain, String startTrain, String endTrain, boolean active, User user) {
+    public Team(long id, String category, String competition, String dayTrain, String startTrain, String endTrain, boolean active, User user) {
         this.id = id;
         this.category = category;
         this.competition = competition;
-        this.cuota = cuota;
+//        this.cuota = cuota; //la carga la API
         this.dayTrain = dayTrain;
         this.startTrain = startTrain;
         this.endTrain = endTrain;
@@ -35,17 +35,16 @@ public class Team {
     }
 
     /**
-     *Constructor para registrar Equipos
-     */
-    public Team(String category, String competition, double cuota, String dayTrain, String startTrain, String endTrain, boolean active, User user) {
+     *Constructor para registrar Equipos sin cuota y con el user por pathVariable
+    */
+    public Team(String category, String competition, String dayTrain, String startTrain, String endTrain, boolean active) {
         this.category = category;
         this.competition = competition;
-        this.cuota = cuota;
+//        this.cuota = cuota;
         this.dayTrain = dayTrain;
         this.startTrain = startTrain;
         this.endTrain = endTrain;
         this.active = active;
-        this.user = user;
     }
 
     public long getId() {

@@ -42,4 +42,5 @@
     <string name="add_date">Añada una fecha con formato YYYY-MM-DD</string>
     <string name="add_hour">Añada una hora con formato HH-MM</string>
     <string name="coach_id">Coach:</string>
+    <string name="modify">Modify</string>
 </resources>

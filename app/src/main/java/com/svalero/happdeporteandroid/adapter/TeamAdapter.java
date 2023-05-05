@@ -118,7 +118,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
             teamActive = view.findViewById(R.id.team_active);
 //            teamUser = view.findViewById(R.id.team_user);
 
-            detailsTeamButton = view.findViewById(R.id.details_team_button);
+//            detailsTeamButton = view.findViewById(R.id.details_team_button);
 //            modifyTeamButton = view.findViewById(R.id.modify_team_button); //De momento en está vista no voy a modificar
             deleteTeamButton = view.findViewById(R.id.delete_team_button);
             matchTeamButton = view.findViewById(R.id.match_team_button);

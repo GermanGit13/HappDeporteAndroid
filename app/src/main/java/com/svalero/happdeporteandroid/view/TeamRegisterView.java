@@ -29,6 +29,7 @@ public class TeamRegisterView extends AppCompatActivity implements TeamRegisterC
 
     private TeamRegisterPresenter presenter;
     private long userId; //id del equipo
+    private String nameTeam; //Equipo pasado por intent.putExtra
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +38,14 @@ public class TeamRegisterView extends AppCompatActivity implements TeamRegisterC
 
         Intent intent = new Intent(getIntent());
         userId = getIntent().getLongExtra("userId", 0); //guardamos el id que nos traemos de la vista detalle
+        nameTeam = getIntent().getStringExtra("name"); //guardamos el id que nos traemos de la vista detalle
 
         /**
          * Para presentar el id del usuario en la view de registrar equipos, nos traemos el id por putExtra del Intent
          */
-        Log.d("user Register", "Ver si traigo el ID del usuario: " + userId);
+        Log.d("user Register", "Ver si traigo el ID del usuario: " + userId + "-" + nameTeam);
         TextView tvUserInTeam = findViewById(R.id.tv_userIdInTeam);
-        tvUserInTeam.setText(String.valueOf(userId));
+        tvUserInTeam.setText(String.valueOf(nameTeam));
 
         presenter = new TeamRegisterPresenter(this);
     }
@@ -52,17 +54,18 @@ public class TeamRegisterView extends AppCompatActivity implements TeamRegisterC
 //        TextView tvTeamInMatch = findViewById(R.id.tv_teamIdInMatch);
         EditText etCategory = findViewById(R.id.et_team_addCategory);
         EditText etCompetition = findViewById(R.id.et_team_addCompetition);
+
         EditText etDayTrain = findViewById(R.id.et_team_addDayTrain);
         EditText etStartTrain = findViewById(R.id.et_team_addStartTrain);
         EditText etEndTrain = findViewById(R.id.et_team_addEndTrain);
-        CheckBox cbActive = findViewById(R.id.cb_team_addActive);
+        CheckBox cbActive = (CheckBox) findViewById(R.id.cb_team_addActive);
 
         String category = etCategory.getText().toString();
         String competition = etCompetition.getText().toString();
         String dayTrain = etDayTrain.getText().toString();
         String startTrain = etStartTrain.getText().toString();
         String endTrain = etEndTrain.getText().toString();
-        Boolean active = cbActive.isActivated();
+        Boolean active = cbActive.isChecked();
 
         /**
          * Validaciones de los campos
@@ -73,7 +76,7 @@ public class TeamRegisterView extends AppCompatActivity implements TeamRegisterC
 //        }
 
 
-        Team team = new Team();
+        Team team = new Team(category, competition, dayTrain, startTrain, endTrain, active);
         presenter.registerTeam(userId, team);
     }
 
