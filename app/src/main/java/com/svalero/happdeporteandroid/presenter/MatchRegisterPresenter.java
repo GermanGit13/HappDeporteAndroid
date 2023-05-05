@@ -25,8 +25,8 @@ public class MatchRegisterPresenter implements MatchRegisterContract.Presenter, 
     }
 
     @Override
-    public void registerMatch(long idTeam, Match match) {
-        model.registerMatch(idTeam, match, this);
+    public void registerMatch(long teamId, Match match) {
+        model.registerMatch(teamId, match, this);
 
     }
 

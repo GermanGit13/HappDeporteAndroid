@@ -5,30 +5,32 @@ import android.database.sqlite.SQLiteConstraintException;
 import com.svalero.happdeporteandroid.api.HappDeporteApi;
 import com.svalero.happdeporteandroid.api.HappDeporteApiInterface;
 import com.svalero.happdeporteandroid.contract.MatchRegisterContract;
+import com.svalero.happdeporteandroid.contract.TeamRegisterContract;
 import com.svalero.happdeporteandroid.domain.Match;
+import com.svalero.happdeporteandroid.domain.Team;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- *Implementamos el contract MatchRegisterContract.Model
+ *Implementamos el contract TeamRegisterContract.Model
  */
-public class MatchRegisterMoldel implements MatchRegisterContract.Model {
+public class TeamRegisterMoldel implements TeamRegisterContract.Model {
     @Override
-    public void registerMatch(long teamId, Match match, OnRegisterMatchListener listener) {
+    public void registerTeam(long userId, Team team, OnRegisterTeamListener listener) {
         try {
             HappDeporteApiInterface happDeporteApi = HappDeporteApi.buildInstance();
-            Call<Match> callMatch = happDeporteApi.addMatch(teamId, match);
-            callMatch.enqueue(new Callback<Match>() {
+            Call<Team> callTeam = happDeporteApi.addTeam(userId, team);
+            callTeam.enqueue(new Callback<Team>() {
                 @Override
-                public void onResponse(Call<Match> call, Response<Match> response) {
-                    Match match = response.body();
-                    listener.onRegisterSuccess(match);
+                public void onResponse(Call<Team> call, Response<Team> response) {
+                    Team team = response.body();
+                    listener.onRegisterSuccess(team);
                 }
 
                 @Override
-                public void onFailure(Call<Match> call, Throwable t) {
+                public void onFailure(Call<Team> call, Throwable t) {
                     t.printStackTrace();
                     String message = "Error invocando a la operación";
                     listener.onRegisterError(message);

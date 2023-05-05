@@ -1,18 +1,18 @@
 package com.svalero.happdeporteandroid.contract;
 
-import com.svalero.happdeporteandroid.domain.Match;
+import com.svalero.happdeporteandroid.domain.Team;
 
 /**
  * Declaramos la lógica las view y presenter que une ambas
  */
-public interface MatchRegisterContract {
+public interface TeamRegisterContract {
 
     interface Model {
-        interface OnRegisterMatchListener { //Creamos un listener para devolver el Match creado  si xtodo va bien o el error si va mal
-            void onRegisterSuccess(Match match);
+        interface OnRegisterTeamListener { //Creamos un listener para devolver el Equipo creado  si xtodo va bien o el error si va mal
+            void onRegisterSuccess(Team team);
             void onRegisterError(String message);
         }
-        void registerMatch(long teamId, Match match, OnRegisterMatchListener listener);
+        void registerTeam(long userId, Team team, OnRegisterTeamListener listener);
     }
 
     interface View {
@@ -22,6 +22,6 @@ public interface MatchRegisterContract {
     }
 
     interface Presenter {
-        void registerMatch(long teamId, Match match);
+        void registerTeam(long userId, Team team);
     }
 }

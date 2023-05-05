@@ -36,4 +36,9 @@
     <string name="cancel">Cancel</string>
     <string name="local_team">Local Team:</string>
     <string name="select_location_message">Selecction location in the map</string>
+    <string name="add_result_markerA">Add result to local Team</string>
+    <string name="add_result_markerB">Add result to opposite Team</string>
+    <string name="add_date">Add date with format YYYY-MM-DD</string>
+    <string name="add_hour">Add hour with format HH:MM</string>
+    <string name="coach_id">Coach:</string>
 </resources>

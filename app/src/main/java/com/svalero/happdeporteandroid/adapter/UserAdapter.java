@@ -1,6 +1,7 @@
 package com.svalero.happdeporteandroid.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.svalero.happdeporteandroid.R;
+import com.svalero.happdeporteandroid.domain.Team;
 import com.svalero.happdeporteandroid.domain.User;
+import com.svalero.happdeporteandroid.view.MatchRegisterView;
+import com.svalero.happdeporteandroid.view.TeamRegisterView;
 
 import java.util.List;
 
@@ -88,7 +92,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
         public Button detailsUserButton;
         //        public Button modifyUserButton;
         public Button deleteUserButton;
-        public Button team_user_button; //Para crear un partido asociado a un equipo
+        public Button teamUserButton; //Para crear un partido asociado a un equipo
 
         public View parentView; //vista padre - como el recyclerView
 
@@ -110,7 +114,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
             detailsUserButton = view.findViewById(R.id.details_user_button);
 //            modifyUserButton = view.findViewById(R.id.modify_user_button); //De momento en está vista no voy a modificar
             deleteUserButton = view.findViewById(R.id.delete_user_button);
-            team_user_button = view.findViewById(R.id.team_user_button);
+            teamUserButton = view.findViewById(R.id.team_user_button);
 
             //TODO añadir opción que realizarán los botones
 //            //Para decirle que hace el boton cuando pulsamos sobre el
@@ -120,8 +124,20 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
 ////            modifyBrigdeButton.setOnClickListener(v -> modifyBrigdeButton(getAdapterPosition()));
 //            // Eliminar un puente
 //            deleteBrigdeButton.setOnClickListener(v -> deleteBrigdeButton(getAdapterPosition()));
-//            //Añadir Inspeccion
-//            inspectionBrigdeButton.setOnClickListener(v -> inspectionBrigdeButton(getAdapterPosition()));
+            //Añadir Equipo a entrenador
+            teamUserButton.setOnClickListener(v -> userTeamButton(getAdapterPosition()));
+        }
+
+        /**
+         * Métodos de los botones del layout para recoger el id y registrar una inspection
+         */
+        private void userTeamButton(int position) {
+            User user = userList.get(position);
+
+            Intent intent = new Intent(context, TeamRegisterView.class);
+            intent.putExtra("userId", user.getId());
+            context.startActivity(intent);
+
         }
     }
 }

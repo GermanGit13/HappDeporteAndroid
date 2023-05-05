@@ -17,14 +17,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/tv_teamInMatch"
+            android:id="@+id/tv_userInTeam"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="@string/local_team" />
+            android:text="@string/coach_id" />
 
         <TextView
-            android:id="@+id/tv_teamIdInMatch"
+            android:id="@+id/tv_userIdInTeam"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -43,14 +43,14 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
 
         <TextView
-            android:id="@+id/tv_teamB"
+            android:id="@+id/tv_category"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="@string/opponent_team" />
+            android:text="@string/category" />
 
         <EditText
-            android:id="@+id/et_teamB"
+            android:id="@+id/et_team_addCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"  />
@@ -66,16 +66,16 @@
         tools:layout_editor_absoluteX="10dp">
 
         <TextView
-            android:id="@+id/tv_markerA"
+            android:id="@+id/tv_competition"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:text="@string/local_marker" />
+            android:text="@string/competition" />
 
         <EditText
-            android:id="@+id/et_markerA"
+            android:id="@+id/et_team_addCompetition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:inputType="textPersonName" />
     </LinearLayout>
 
     <LinearLayout
@@ -88,16 +88,16 @@
         tools:layout_editor_absoluteX="10dp">
 
         <TextView
-            android:id="@+id/tv_markerB"
+            android:id="@+id/tv_dayTrain"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:text="@string/opponent_marker" />
+            android:text= "@string/day_training" />
 
         <EditText
-            android:id="@+id/et_markerB"
+            android:id="@+id/et_team_addDayTrain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:inputType="textPersonName" />
     </LinearLayout>
 
     <LinearLayout
@@ -110,13 +110,13 @@
         tools:layout_editor_absoluteX="10dp">
 
         <TextView
-            android:id="@+id/tv_analysis"
+            android:id="@+id/tv_startTrain"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:text="@string/analysis" />
+            android:text="@string/start_training" />
 
         <EditText
-            android:id="@+id/et_analysis"
+            android:id="@+id/et_team_addStartTrain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />
@@ -133,14 +133,14 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <TextView
-            android:id="@+id/tv_dateMatch"
+            android:id="@+id/tv_endTrain"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="@string/day" />
+            android:text="@string/end_training" />
 
         <EditText
-            android:id="@+id/et_dateMatch"
+            android:id="@+id/et_team_addEndTrain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />
@@ -157,17 +157,19 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
         <TextView
-            android:id="@+id/tv_hourMatch"
+            android:id="@+id/tv_active"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="@string/hour" />
+            android:text="@string/active" />
 
-        <EditText
-            android:id="@+id/et_hourMatch"
+        <CheckBox
+            android:id="@+id/cb_team_addActive"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName" />
+            android:clickable="true"
+            android:textColor="#000000"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -179,7 +181,7 @@
         tools:layout_editor_absoluteX="10dp">
 
         <Button
-            android:id="@+id/add_match_button"
+            android:id="@+id/add_team_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -197,22 +199,5 @@
             app:icon="@drawable/ic_baseline_cancel_24" />
 
     </LinearLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
-        tools:layout_editor_absoluteX="10dp">
-
-        <com.mapbox.maps.MapView
-            android:id="@+id/matchMap"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:mapbox_cameraTargetLat="40.7128"
-            app:mapbox_cameraTargetLng="-74.0060"
-            app:mapbox_cameraZoom="9.0"></com.mapbox.maps.MapView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

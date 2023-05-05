@@ -57,7 +57,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
      */
     @Override
     public void onBindViewHolder(TeamHolder holder, int position) {
-//        holder.teamId.setText(teamList.get(position).getId());
+        holder.teamId.setText(String.valueOf(teamList.get(position).getId()));
         holder.teamCategory.setText(teamList.get(position).getCategory());
         holder.teamCompetition.setText(teamList.get(position).getCompetition());
         holder.teamCuota.setText(String.valueOf(teamList.get(position).getCuota())); //Proviene de un double
@@ -65,7 +65,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
         holder.teamStartTrain.setText(teamList.get(position).getStartTrain());
         holder.teamEndTrain.setText(teamList.get(position).getEndTrain());
         holder.teamActive.setChecked(teamList.get(position).isActive()); //Proviene de un boolean acaba en un checkbox
-//        holder.teamUser.setText(teamList.get(position).getUser().getUsername());
+//        holder.teamUser.setText(String.valueOf(teamList.get(position).getUser().getName()));
 
     }
 
@@ -84,7 +84,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
      * Creamos todos los componentes que tenemos
      */
     public class TeamHolder extends RecyclerView.ViewHolder {
-//        public TextView teamId;
+        public TextView teamId;
         public TextView teamCategory;
         public TextView teamCompetition;
         public TextView teamCuota;
@@ -108,7 +108,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
             super(view); //Vista padre
             parentView = view; //Guardamos el componente padre
 
-//            teamId = view.findViewById(R.id.team_id);
+            teamId = view.findViewById(R.id.team_id);
             teamCategory = view.findViewById(R.id.team_category);
             teamCompetition = view.findViewById(R.id.team_competition);
             teamCuota = view.findViewById(R.id.team_cuota);
@@ -143,7 +143,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> {
         Team team = teamList.get(position);
 
         Intent intent = new Intent(context, MatchRegisterView.class);
-        intent.putExtra("teamInMatch", team.getId());
+        intent.putExtra("teamId", team.getId());
         context.startActivity(intent);
 
     }
