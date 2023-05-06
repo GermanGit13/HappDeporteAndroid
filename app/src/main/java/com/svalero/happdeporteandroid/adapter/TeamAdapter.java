@@ -3,6 +3,7 @@ package com.svalero.happdeporteandroid.adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
-import com.mapbox.maps.Task;
 import com.svalero.happdeporteandroid.R;
 import com.svalero.happdeporteandroid.contract.TeamDeleteContract;
 import com.svalero.happdeporteandroid.domain.Team;
@@ -46,6 +46,10 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> im
     public TeamAdapter(Context context, List<Team> dataList) {
         this.context = context;
         this.teamList = dataList;
+    }
+
+    public Context getContext() {
+        return context;
     }
 
     /**
@@ -152,14 +156,14 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> im
             // Eliminar un equipo
             deleteTeamButton.setOnClickListener(v -> deleteTeam(getAdapterPosition()));
             //Añadir Partido
-            matchTeamButton.setOnClickListener(v -> matchTeamButton(getAdapterPosition()));
+            matchTeamButton.setOnClickListener(v -> addMatchInTeam(getAdapterPosition()));
         }
     }
 
     /**
      * Métodos de los botones del layout para recoger el id y registrar una inspection
      */
-    private void matchTeamButton(int position) {
+    private void addMatchInTeam(int position) {
         Team team = teamList.get(position);
 
         Intent intent = new Intent(context, MatchRegisterView.class);
@@ -168,12 +172,16 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> im
     }
 
     private void deleteTeam(int position) {
+        Team team = teamList.get(position);
+        long idTeam = team.getId();
+        Log.d("Team Borrar", "Desde Aviso de Borrar:" + team.getId() + "-" + idTeam);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(R.string.are_you_sure)
                 .setTitle(R.string.remove_team)
                 .setPositiveButton(R.string.yes, (dialog, id) -> {
-                    Team team = teamList.get(position);
-                    presenter.deleteTeam(team.getId());
+//                    Team team = teamList.get(position);
+                    presenter.deleteTeam(idTeam);
 
                     teamList.remove(position);
                     notifyItemRemoved(position);

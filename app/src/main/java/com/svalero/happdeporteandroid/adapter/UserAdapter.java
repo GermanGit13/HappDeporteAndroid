@@ -1,7 +1,9 @@
 package com.svalero.happdeporteandroid.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +13,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.svalero.happdeporteandroid.R;
+import com.svalero.happdeporteandroid.contract.UserDeleteContract;
+import com.svalero.happdeporteandroid.contract.UserListContract;
 import com.svalero.happdeporteandroid.domain.Team;
 import com.svalero.happdeporteandroid.domain.User;
+import com.svalero.happdeporteandroid.presenter.UserDeletePresenter;
 import com.svalero.happdeporteandroid.view.MatchRegisterView;
 import com.svalero.happdeporteandroid.view.TeamRegisterView;
 
@@ -25,11 +32,13 @@ import java.util.List;
  * al extender de la clase RecyclerView los @Override los añadira automáticamente para el patron Holder, solo añadiremos nosotros el 5)
  *
  */
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> implements UserDeleteContract.View {
 
     private Context context; // Activity en la que estamos
     private List<User> userList;
     private User user;
+    private UserDeletePresenter presenter;
+    private View snackBarView;
 
     /**
      * 1) Constructor que creamos para pasarle los datos que queremos que pinte
@@ -39,6 +48,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
     public UserAdapter(Context context, List<User> dataList) {
         this.context = context;
         this.userList = dataList;
+    }
+
+    public Context getContext() {
+        return context;
     }
 
     /**
@@ -76,6 +89,19 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
         return userList.size(); //devolvemos el tamaño de la lista
     }
 
+
+    @Override
+    public void showError(String errorMessage) {
+        Snackbar.make(snackBarView, errorMessage,
+                BaseTransientBottomBar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showMessage(String message) {
+        Snackbar.make(snackBarView, message,
+                BaseTransientBottomBar.LENGTH_LONG).show();
+    }
+
     /**
      * 5) Holder son las estructuras que contienen los datos y los rellenan luego
      * Creamos todos los componentes que tenemos
@@ -91,7 +117,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
 
 //        public Button detailsUserButton;
         public Button modifyUserButton;
-//        public Button deleteUserButton;
+        public Button deleteUserButton;
         public Button teamUserButton; //Para crear un equipo asociado a un usuario
 
         public View parentView; //vista padre - como el recyclerView
@@ -113,17 +139,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
 
 //            detailsUserButton = view.findViewById(R.id.details_user_button);
             modifyUserButton = view.findViewById(R.id.modify_user_button); //De momento en está vista no voy a modificar
-//            deleteUserButton = view.findViewById(R.id.delete_user_button);
+            deleteUserButton = view.findViewById(R.id.delete_user_button);
             teamUserButton = view.findViewById(R.id.team_user_button);
 
             //TODO añadir opción que realizarán los botones
 //            //Para decirle que hace el boton cuando pulsamos sobre el
 //            // Ver detalles de un puente
 //            detailsBrigdeButton.setOnClickListener(v -> detailsBrigdeButton(getAdapterPosition())); //al pulsar lo llevamos al método detailsBrigdeButton
-//             Modificar un puente
+//             Modificar un usuario
             modifyUserButton.setOnClickListener(v -> modifyUserButton(getAdapterPosition()));
-//            // Eliminar un puente
-//            deleteBrigdeButton.setOnClickListener(v -> deleteBrigdeButton(getAdapterPosition()));
+            // Eliminar un usuario
+            deleteUserButton.setOnClickListener(v -> deleteUser(getAdapterPosition()));
             //Añadir Equipo a entrenador
             teamUserButton.setOnClickListener(v -> userTeamButton(getAdapterPosition()));
         }
@@ -150,5 +176,25 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
         Intent intent = new Intent(context, TeamRegisterView.class);
         intent.putExtra("userId", user.getId());
         context.startActivity(intent);
+    }
+
+    private void deleteUser(int position) {
+        User user = userList.get(position);
+//        long idTeam = team.getId();
+        Log.d("User Borrar", "Desde Aviso de Borrar:" + user.getId());
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(R.string.are_you_sure)
+                .setTitle(R.string.remove_user)
+                .setPositiveButton(R.string.yes, (dialog, id) -> {
+//                    User user = userList.get(position);
+                    presenter.deleteUser(user.getId());
+
+                    userList.remove(position);
+                    notifyItemRemoved(position);
+                })
+                .setNegativeButton(R.string.no, (dialog, id) -> dialog.dismiss());
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

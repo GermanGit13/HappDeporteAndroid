@@ -5,20 +5,20 @@ import android.database.sqlite.SQLiteConstraintException;
 import com.svalero.happdeporteandroid.api.HappDeporteApi;
 import com.svalero.happdeporteandroid.api.HappDeporteApiInterface;
 import com.svalero.happdeporteandroid.contract.TeamDeleteContract;
-import com.svalero.happdeporteandroid.domain.Team;
+import com.svalero.happdeporteandroid.contract.UserDeleteContract;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TeamDeleteModel implements TeamDeleteContract.Model {
+public class UserDeleteModel implements UserDeleteContract.Model {
 
     @Override
-    public void deleteTeam(long teamId, OnDeleteTeamListener listener) {
+    public void deleteUser(long userId, OnDeleteUserListener listener) {
         try {
             HappDeporteApiInterface happDeporteApi = HappDeporteApi.buildInstance();
-            Call<Void> callTeams = happDeporteApi.deleteTeam(teamId);
-            callTeams.enqueue(new Callback<Void>() {
+            Call<Void> callUsers = happDeporteApi.deleteUser(userId);
+            callUsers.enqueue(new Callback<Void>() {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     listener.onDeleteSuccess();

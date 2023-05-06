@@ -28,8 +28,8 @@ public interface HappDeporteApiInterface {
     @POST("users")
     Call<User> aadUser(@Body User user);
 
-    @DELETE("users/{id}")
-    Call<Void> deleteUser(@Path("id") long id); //Void porque la operación de borrado no devuelve nada
+    @DELETE("users/{userId}")
+    Call<Void> deleteUser(@Path("userId") long userId); //Void porque la operación de borrado no devuelve nada
 
 
     /**

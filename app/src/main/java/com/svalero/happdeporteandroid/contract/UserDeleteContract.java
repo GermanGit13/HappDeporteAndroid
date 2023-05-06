@@ -1,13 +1,13 @@
 package com.svalero.happdeporteandroid.contract;
 
-public interface TeamDeleteContract {
+public interface UserDeleteContract {
 
     interface Model {
-        interface OnDeleteTeamListener {
+        interface OnDeleteUserListener {
             void onDeleteSuccess();
             void onDeleteError(String message);
         }
-        void deleteTeam(long teamId, OnDeleteTeamListener listener);
+        void deleteUser(long userId, OnDeleteUserListener listener);
     }
 
     interface View {
@@ -16,6 +16,6 @@ public interface TeamDeleteContract {
     }
 
     interface Presenter {
-        void deleteTeam(long teamId);
+        void deleteUser(long userId);
     }
 }

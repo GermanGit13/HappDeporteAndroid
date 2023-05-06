@@ -22,7 +22,7 @@ public class TeamDeletePresenter implements TeamDeleteContract.Presenter,
     }
 
     @Override
-    public void onDeleteSucces() {
+    public void onDeleteSuccess() {
         view.showMessage("El Equipo se ha eliminado correctamente");
     }
 
