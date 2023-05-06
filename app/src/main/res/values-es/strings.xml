@@ -8,7 +8,7 @@
     <string name="view_map">Ver Mapa</string>
     <string name="preferences">Preferencias</string>
     <string name="details">Detalles</string>
-    <string name="delete">Borrar</string>
+    <string name="delete">BORRAR</string>
     <string name="register_match">Añadir Partido</string>
     <string name="category">Categoría:</string>
     <string name="competition">Competición:</string>
@@ -48,4 +48,7 @@
     <string name="yes">Si</string>
     <string name="no">No</string>
     <string name="remove_user">Remove User</string>
+    <string name="username">Username</string>
+    <string name="pass">Pass:</string>
+    <string name="rol">Rol:</string>
 </resources>

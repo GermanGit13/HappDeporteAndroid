@@ -13,30 +13,26 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
 import com.svalero.happdeporteandroid.R;
 import com.svalero.happdeporteandroid.contract.UserDeleteContract;
-import com.svalero.happdeporteandroid.contract.UserListContract;
-import com.svalero.happdeporteandroid.domain.Team;
 import com.svalero.happdeporteandroid.domain.User;
 import com.svalero.happdeporteandroid.presenter.UserDeletePresenter;
-import com.svalero.happdeporteandroid.view.MatchRegisterView;
 import com.svalero.happdeporteandroid.view.TeamRegisterView;
+import com.svalero.happdeporteandroid.view.UserModifyView;
 
 import java.util.List;
 
 /**
- * TeamAdapter: Es la clase en la que le explicamos a Android como pintar cada elemento en el RecyclerView
+ * UserAdapter: Es la clase en la que le explicamos a Android como pintar cada elemento en el RecyclerView
  * Patron Holder: 1) Constructor - 2) onCreateViewHolder - 3) onBindViewHolder - 4) getItemCount - 5) Y la estructura SuperheroHolder
  * al extender de la clase RecyclerView los @Override los añadira automáticamente para el patron Holder, solo añadiremos nosotros el 5)
  *
  */
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> implements UserDeleteContract.View {
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder>
+        implements UserDeleteContract.View {
 
     private Context context; // Activity en la que estamos
     private List<User> userList;
-    private User user;
     private UserDeletePresenter presenter;
     private View snackBarView;
 
@@ -48,6 +44,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> im
     public UserAdapter(Context context, List<User> dataList) {
         this.context = context;
         this.userList = dataList;
+        presenter = new UserDeletePresenter(this);
     }
 
     public Context getContext() {
@@ -89,17 +86,22 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> im
         return userList.size(); //devolvemos el tamaño de la lista
     }
 
-
+    //Todo Revisar porque no devuelve mensaje
     @Override
     public void showError(String errorMessage) {
-        Snackbar.make(snackBarView, errorMessage,
-                BaseTransientBottomBar.LENGTH_LONG).show();
+//        Snackbar.make(((TextView) snackBarView.findViewById(R.id.user_name)), errorMessage,
+//                BaseTransientBottomBar.LENGTH_LONG).show();
+//        Snackbar.make(snackBarView, errorMessage,
+//                BaseTransientBottomBar.LENGTH_LONG).show();
     }
 
+    //TODO Revisar porque no devuelve mensaje
     @Override
     public void showMessage(String message) {
-        Snackbar.make(snackBarView, message,
-                BaseTransientBottomBar.LENGTH_LONG).show();
+//        Snackbar.make(((TextView) snackBarView.findViewById(R.id.user_name)), message,
+//                BaseTransientBottomBar.LENGTH_LONG).show();
+//        Snackbar.make(snackBarView, message,
+//                BaseTransientBottomBar.LENGTH_LONG).show();
     }
 
     /**
@@ -173,7 +175,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> im
     private void modifyUserButton(int position) {
         User user = userList.get(position);
 
-        Intent intent = new Intent(context, TeamRegisterView.class);
+        Intent intent = new Intent(context, UserModifyView.class);
         intent.putExtra("userId", user.getId());
         context.startActivity(intent);
     }

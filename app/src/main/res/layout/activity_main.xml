@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FBFE01"
+    android:background="#F4D504"
     android:paddingVertical="10dp"
     tools:context=".view.MainActivity">
 
@@ -41,6 +41,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#020200"
+                android:textColor="#F4D504"
+                app:iconTint="#F4D504"
                 android:text="@string/list_of_teams" />
 
             <!--            <Button-->
@@ -60,6 +62,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#020200"
+                android:textColor="#F4D504"
+                app:iconTint="#F4D504"
                 android:text="@string/list_of_matches" />
 
             <!--            <Button-->
@@ -78,6 +82,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#020200"
+                android:textColor="#F4D504"
+                app:iconTint="#F4D504"
                 android:text="@string/list_of_users" />
 
             <Button
@@ -85,6 +91,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#020200"
+                android:textColor="#F4D504"
+                app:iconTint="#F4D504"
                 android:text="@string/Add" />
 
         </TableRow>

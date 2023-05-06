@@ -18,7 +18,7 @@
     <string name="active">Active:</string>
     <string name="coach">Coach:</string>
     <string name="id">Id:</string>
-    <string name="name">name</string>
+    <string name="name">name:</string>
     <string name="surname">surname</string>
     <string name="address">Address</string>
     <string name="mail">Mail</string>
@@ -47,4 +47,7 @@
     <string name="yes">Yes</string>
     <string name="no">Not</string>
     <string name="remove_user">Remove User</string>
+    <string name="username">Username:</string>
+    <string name="pass">Pass:</string>
+    <string name="rol">Rol:</string>
 </resources>

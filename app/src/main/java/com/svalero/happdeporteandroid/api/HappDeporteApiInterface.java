@@ -26,11 +26,13 @@ public interface HappDeporteApiInterface {
     Call<List<User>> getUsers(); //devuelve una lista de usuarios
 
     @POST("users")
-    Call<User> aadUser(@Body User user);
+    Call<User> addUser(@Body User user);
 
     @DELETE("users/{userId}")
     Call<Void> deleteUser(@Path("userId") long userId); //Void porque la operación de borrado no devuelve nada
 
+    @PUT("/users/{id}")
+    Call<User> modifyUser(@Path("userId") long userId, @Body User user);
 
     /**
      * Teams

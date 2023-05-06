@@ -17,13 +17,109 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/textViewUserId"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/id" />
+
+            <TextView
+                android:id="@+id/tv_user_modify_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewUsername"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/username" />
+
+            <EditText
+                android:id="@+id/et_user_modify_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewPass"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/pass" />
+
+            <EditText
+                android:id="@+id/et_user_modify_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewRol"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/rol" />
+
+            <CheckBox
+                android:id="@+id/user_modify_coach_boolean"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewCoach"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/coach" />
+
+            <EditText
+                android:id="@+id/et_user_modify_coach"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
                 android:id="@+id/textViewName"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="@string/name" />
 
             <TextView
-                android:id="@+id/user_name"
+                android:id="@+id/user_modify_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -41,8 +137,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/surname" />
 
-            <TextView
-                android:id="@+id/user_surname"
+            <EditText
+                android:id="@+id/et_user_surname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -60,8 +156,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/address" />
 
-            <TextView
-                android:id="@+id/user_address"
+            <EditText
+                android:id="@+id/et_user_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -79,8 +175,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/mail" />
 
-            <TextView
-                android:id="@+id/user_mail"
+            <EditText
+                android:id="@+id/et_user_mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -98,10 +194,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/phone" />
 
-            <TextView
-                android:id="@+id/user_phone"
+            <EditText
+                android:id="@+id/et_user_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:textColor="#000000"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -121,49 +218,32 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="#020200"
+            android:onClick="modifyUser"
             android:padding="5dp"
             android:text="@string/modify"
-            android:textSize="12sp"
             android:textColor="#F4D504"
-            app:iconTint="#F4D504"
-            app:icon="?android:attr/actionModeFindDrawable" />
+            android:textSize="12sp"
+            app:icon="?android:attr/actionModeFindDrawable"
+            app:iconTint="#F4D504" />
 
         <Button
-            android:id="@+id/delete_user_button"
-            style="@style/Widget.AppCompat.Button"
+            android:id="@+id/modify_user_cancel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="#020200"
+            android:onClick="modifyUserCancel"
             android:padding="5dp"
-            android:text="@string/delete"
+            android:text="@string/cancel"
             android:textColor="#F4D504"
             android:textSize="12sp"
-            app:icon="@android:drawable/ic_menu_delete"
+            app:icon="@drawable/ic_baseline_cancel_presentation_24"
             app:iconPadding="12dp"
             app:iconTint="#F4D504" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/team_user_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="#020200"
-            android:padding="5dp"
-            android:text="@string/addTeamToCoach"
-            android:textColor="#F4D504"
-            app:iconTint="#F4D504"
-            app:icon="@drawable/ic_baseline_sports_baseball_24" />
-
-    </LinearLayout>
 
 </LinearLayout>

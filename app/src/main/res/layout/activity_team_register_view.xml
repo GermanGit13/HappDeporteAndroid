@@ -188,6 +188,8 @@
             android:backgroundTint="#020200"
             android:onClick="saveButtonTeam"
             android:text="@string/save"
+            android:textColor="#F4D504"
+            app:iconTint="#F4D504"
             app:icon="@drawable/ic_baseline_data_saver_on_24" />
 
         <Button
@@ -198,6 +200,8 @@
             android:backgroundTint="#020200"
             android:onClick="goBackButton"
             android:text="@string/cancel"
+            android:textColor="#F4D504"
+            app:iconTint="#F4D504"
             app:icon="@drawable/ic_baseline_cancel_24" />
 
     </LinearLayout>
