@@ -20,8 +20,11 @@ import com.google.android.material.snackbar.Snackbar;
 import com.svalero.happdeporteandroid.R;
 import com.svalero.happdeporteandroid.contract.TeamDeleteContract;
 import com.svalero.happdeporteandroid.domain.Team;
+import com.svalero.happdeporteandroid.domain.User;
 import com.svalero.happdeporteandroid.presenter.TeamDeletePresenter;
 import com.svalero.happdeporteandroid.view.MatchRegisterView;
+import com.svalero.happdeporteandroid.view.TeamModifyView;
+import com.svalero.happdeporteandroid.view.UserModifyView;
 
 import java.util.List;
 
@@ -123,8 +126,8 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> im
         public CheckBox teamActive;
         public TextView teamUser;
 
-        public Button detailsTeamButton;
-        //        public Button modifyTeamButton;
+//        public Button detailsTeamButton;
+        public Button modifyTeamButton;
         public Button deleteTeamButton;
         public Button matchTeamButton; //Para crear un partido asociado a un equipo
 
@@ -148,7 +151,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> im
 //            teamUser = view.findViewById(R.id.team_user);
 
 //            detailsTeamButton = view.findViewById(R.id.details_team_button);
-//            modifyTeamButton = view.findViewById(R.id.modify_team_button); //De momento en está vista no voy a modificar
+            modifyTeamButton = view.findViewById(R.id.modify_team_button); //De momento en está vista no voy a modificar
             deleteTeamButton = view.findViewById(R.id.delete_team_button);
             matchTeamButton = view.findViewById(R.id.match_team_button);
 
@@ -156,8 +159,8 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> im
 //            //Para decirle que hace el boton cuando pulsamos sobre el
 //            // Ver detalles de un puente
 //            detailsBrigdeButton.setOnClickListener(v -> detailsBrigdeButton(getAdapterPosition())); //al pulsar lo llevamos al método detailsBrigdeButton
-////            // Modificar un puente
-////            modifyBrigdeButton.setOnClickListener(v -> modifyBrigdeButton(getAdapterPosition()));
+            // Modificar un equipo
+            modifyTeamButton.setOnClickListener(v -> modifyTeam(getAdapterPosition()));
             // Eliminar un equipo
             deleteTeamButton.setOnClickListener(v -> deleteTeam(getAdapterPosition()));
             //Añadir Partido
@@ -194,5 +197,17 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> im
                 .setNegativeButton(R.string.no, (dialog, id) -> dialog.dismiss());
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    /**
+     * Métodos de los botones del layout para recoger el id y registrar una inspection
+     */
+    private void modifyTeam(int position) {
+        Team team = teamList.get(position);
+
+
+        Intent intent = new Intent(context, TeamModifyView.class);
+        intent.putExtra("team", team); //Mandamos el objeto entero ya que es una clase serializable
+        context.startActivity(intent);
     }
 }

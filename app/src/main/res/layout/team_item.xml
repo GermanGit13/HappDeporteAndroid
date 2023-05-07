@@ -197,12 +197,13 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="#020200"
+            android:onClick="modifyTeam"
             android:padding="5dp"
             android:text="@string/modify"
-            android:textSize="12sp"
             android:textColor="#F4D504"
-            app:iconTint="#F4D504"
-            app:icon="?android:attr/actionModeFindDrawable" />
+            android:textSize="12sp"
+            app:icon="?android:attr/actionModeFindDrawable"
+            app:iconTint="#F4D504" />
 
         <Button
             android:id="@+id/delete_team_button"

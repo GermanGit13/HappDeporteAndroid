@@ -1,11 +1,12 @@
 package com.svalero.happdeporteandroid.domain;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
 /**
  * Objeto igual que el de la API
  */
-public class Team {
+public class Team implements Serializable {
 
     private long id;
     private String category;
@@ -19,20 +20,19 @@ public class Team {
 
     public Team() {}
 
-    /**
-     *Constructor para modificar Equipos
-     */
-    public Team(long id, String category, String competition, String dayTrain, String startTrain, String endTrain, boolean active, User user) {
-        this.id = id;
-        this.category = category;
-        this.competition = competition;
-//        this.cuota = cuota; //la carga la API
-        this.dayTrain = dayTrain;
-        this.startTrain = startTrain;
-        this.endTrain = endTrain;
-        this.active = active;
-        this.user = user;
-    }
+//    /**
+//     *Constructor para modificar Equipos
+//     */
+//    public Team(String category, String competition, String dayTrain, String startTrain, String endTrain, boolean active) {
+//        this.category = category;
+//        this.competition = competition;
+////        this.cuota = cuota; //la carga la API
+//        this.dayTrain = dayTrain;
+//        this.startTrain = startTrain;
+//        this.endTrain = endTrain;
+//        this.active = active;
+//
+//    }
 
     /**
      *Constructor para registrar Equipos sin cuota y con el user por pathVariable

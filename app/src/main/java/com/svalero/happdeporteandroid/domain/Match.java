@@ -1,8 +1,9 @@
 package com.svalero.happdeporteandroid.domain;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
-public class Match {
+public class Match implements Serializable {
 
     private long id;
     private String teamB;

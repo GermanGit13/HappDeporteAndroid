@@ -48,6 +48,8 @@ public interface HappDeporteApiInterface {
 
     @DELETE("teams/{teamId}")
     Call<Void> deleteTeam(@Path("teamId") long teamId); //Void porque la operación de borrado no devuelve nada
+    @PUT("teams/{teamId}/users/{userId}")
+    Call<Team> modifyTeam(@Path("teamId") long teamId, @Path("userId") long userId, @Body Team team);
 
     /**
      * Mactch

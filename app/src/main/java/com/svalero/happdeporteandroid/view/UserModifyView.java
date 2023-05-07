@@ -1,11 +1,7 @@
 package com.svalero.happdeporteandroid.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
-
-import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,7 +14,6 @@ import com.google.android.material.snackbar.Snackbar;
 import com.svalero.happdeporteandroid.R;
 import com.svalero.happdeporteandroid.contract.UserModifyContract;
 import com.svalero.happdeporteandroid.domain.User;
-import com.svalero.happdeporteandroid.presenter.TeamRegisterPresenter;
 import com.svalero.happdeporteandroid.presenter.UserModifyPresenter;
 
 public class UserModifyView extends AppCompatActivity implements UserModifyContract.View {

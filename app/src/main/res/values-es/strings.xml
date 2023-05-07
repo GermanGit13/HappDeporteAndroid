@@ -47,8 +47,12 @@
     <string name="remove_team">Eliminar Equipo</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
-    <string name="remove_user">Remove User</string>
+    <string name="remove_user">Borrar Usuario</string>
     <string name="username">Username</string>
-    <string name="pass">Pass:</string>
+    <string name="pass">Conraseña:</string>
     <string name="rol">Rol:</string>
+    <string name="coach_id_modify">Entrenador  Id:</string>
+    <string name="modify_coach">Al modificar el equipo se pierde el Id del entrenador</string>
+    <string name="title_modify">Necesitarás id del entrenador</string>
+    <string name="accept">Aceptar</string>
 </resources>
