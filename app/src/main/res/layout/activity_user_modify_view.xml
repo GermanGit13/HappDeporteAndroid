@@ -23,7 +23,7 @@
                 android:text="@string/id" />
 
             <TextView
-                android:id="@+id/tv_user_modify_username"
+                android:id="@+id/tv_user_modify_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -79,13 +79,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/rol" />
 
-            <CheckBox
-                android:id="@+id/user_modify_coach_boolean"
+            <EditText
+                android:id="@+id/et_user_modify_rol"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
                 android:textColor="#000000"
                 android:textSize="16sp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -99,12 +99,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/coach" />
 
-            <EditText
-                android:id="@+id/et_user_modify_coach"
+            <CheckBox
+                android:id="@+id/cb_user_modify_coach_boolean"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:textColor="#000000"
                 android:textSize="16sp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -118,8 +120,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/name" />
 
-            <TextView
-                android:id="@+id/user_modify_name"
+            <EditText
+                android:id="@+id/et_user_modify_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -138,7 +140,7 @@
                 android:text="@string/surname" />
 
             <EditText
-                android:id="@+id/et_user_surname"
+                android:id="@+id/et_user_modify_surname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -157,7 +159,7 @@
                 android:text="@string/address" />
 
             <EditText
-                android:id="@+id/et_user_address"
+                android:id="@+id/et_user_modify_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -176,7 +178,7 @@
                 android:text="@string/mail" />
 
             <EditText
-                android:id="@+id/et_user_mail"
+                android:id="@+id/et_user_modify_mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -195,7 +197,7 @@
                 android:text="@string/phone" />
 
             <EditText
-                android:id="@+id/et_user_phone"
+                android:id="@+id/et_user_modify_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
@@ -218,7 +220,7 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:backgroundTint="#020200"
-            android:onClick="modifyUser"
+            android:onClick="modifyButtonUser"
             android:padding="5dp"
             android:text="@string/modify"
             android:textColor="#F4D504"

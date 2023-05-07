@@ -1,6 +1,11 @@
 package com.svalero.happdeporteandroid.domain;
 
-public class User {
+import java.io.Serializable;
+
+/**
+ * Implementamos Serializable para poder pasar los objetos entre activities
+ */
+public class User implements Serializable {
 
     private long id;
     private String username;
@@ -15,7 +20,7 @@ public class User {
 
 
     /**
-     *Constructor para registrar Usuarios
+     *Constructor para modificar Usuarios
      */
     public User(long id, String username, String pass, String rol, boolean coach, String name, String surname, String address, String mail, String phone) {
         this.id = id;
@@ -31,7 +36,7 @@ public class User {
     }
 
     /**
-     *Constructor para modificar Usuarios
+     *Constructor para registrar Usuarios
      */
     public User(String username, String pass, String rol, boolean coach, String name, String surname, String address, String mail, String phone) {
         this.username = username;

@@ -176,7 +176,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder>
         User user = userList.get(position);
 
         Intent intent = new Intent(context, UserModifyView.class);
-        intent.putExtra("userId", user.getId());
+        intent.putExtra("user", user);
         context.startActivity(intent);
     }
 
