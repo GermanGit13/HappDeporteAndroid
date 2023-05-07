@@ -75,7 +75,6 @@ public class TeamRegisterView extends AppCompatActivity implements TeamRegisterC
 //            return;
 //        }
 
-
         Team team = new Team(category, competition, dayTrain, startTrain, endTrain, active);
         presenter.registerTeam(userId, team);
     }

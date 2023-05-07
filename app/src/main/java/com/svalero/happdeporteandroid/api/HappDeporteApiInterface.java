@@ -34,7 +34,7 @@ public interface HappDeporteApiInterface {
     @DELETE("users/{userId}")
     Call<Void> deleteUser(@Path("userId") long userId); //Void porque la operación de borrado no devuelve nada
 
-    @PUT("/users/{id}")
+    @PUT("/users/{userId}")
     Call<User> modifyUser(@Path("userId") long userId, @Body User user);
 
     /**
