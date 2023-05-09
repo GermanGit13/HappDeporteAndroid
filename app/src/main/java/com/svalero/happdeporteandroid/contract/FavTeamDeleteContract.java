@@ -13,6 +13,7 @@ public interface FavTeamDeleteContract {
     }
 
     interface Presenter {
-        void deleteTask(FavTeam favTeam);
+        void deleteFavTeam(FavTeam favTeam);
+
     }
 }

@@ -19,9 +19,10 @@ public class FavTeamRegisterModel implements FavTeamRegisterContract.Model {
      * Pasamo el contexto desde el presenter
      * @param context
      */
-//    public FavTeamRegisterModel(Context context) {
-//        this.context = context;
-//    }
+    public FavTeamRegisterModel(Context context) {
+        this.context = context;
+    }
+
     @Override
     public boolean registerFavTeam(FavTeam favTeam) {
         try {

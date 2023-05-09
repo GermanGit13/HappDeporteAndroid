@@ -1,5 +1,7 @@
 package com.svalero.happdeporteandroid.adapter;
 
+import static com.svalero.happdeporteandroid.db.Constants.DATABASE_NAME;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,10 +13,16 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import com.svalero.happdeporteandroid.R;
+import com.svalero.happdeporteandroid.contract.FavTeamDeleteContract;
+import com.svalero.happdeporteandroid.db.AppDatabase;
 import com.svalero.happdeporteandroid.domain.FavTeam;
 import com.svalero.happdeporteandroid.domain.Team;
+import com.svalero.happdeporteandroid.presenter.FavTeamDeletePresenter;
+import com.svalero.happdeporteandroid.presenter.FavTeamPresenter;
+import com.svalero.happdeporteandroid.presenter.TeamDeletePresenter;
 
 import java.util.List;
 
@@ -24,14 +32,13 @@ import java.util.List;
  * al extender de la clase RecyclerView los @Override los añadira automáticamente para el patron Holder, solo añadiremos nosotros el 5)
  * implements TeamDeleteContract.View porque hace las funciones de view para implentar sus metodos
  */
-public class FavTeamAdapter extends RecyclerView.Adapter<FavTeamAdapter.TeamHolder> { //implements FavTeamDeleteContract.View {
+public class FavTeamAdapter extends RecyclerView.Adapter<FavTeamAdapter.TeamHolder> implements FavTeamDeleteContract.View {
 
     private Context context; // Activity en la que estamos
     private List<FavTeam> favTeamList;
-    private Team team;
+    private FavTeam favTeam;
     private View snackBarView;
-//    private FavTeamDeletePresenter presenter;
-
+    private FavTeamDeletePresenter presenter;
 
     /**
      * 1) Constructor que creamos para pasarle los datos que queremos que pinte
@@ -85,20 +92,10 @@ public class FavTeamAdapter extends RecyclerView.Adapter<FavTeamAdapter.TeamHold
         return favTeamList.size(); //devolvemos el tamaño de la lista
     }
 
-//    //TODO Revisar devolver mensaje
-//    @Override
-//    public void showError(String errorMessage) {
-////        Snackbar.make(((TextView) snackBarView.findViewById(R.id.team_category)), errorMessage,
-////                BaseTransientBottomBar.LENGTH_LONG).show();
-//    }
+    @Override
+    public void showMessage(String message) {
 
-//    @Override
-//    public void showMessage(String message) {
-////        Snackbar.make(((TextView) snackBarView.findViewById(R.id.team_category)), message,
-////                BaseTransientBottomBar.LENGTH_LONG).show();
-////        Snackbar.make(snackBarView, message,
-////                BaseTransientBottomBar.LENGTH_LONG).show();
-//    }
+    }
 
     /**
      * 5) Holder son las estructuras que contienen los datos y los rellenan luego
@@ -153,7 +150,11 @@ public class FavTeamAdapter extends RecyclerView.Adapter<FavTeamAdapter.TeamHold
                 .setTitle(R.string.remove_team)
                 .setPositiveButton(R.string.yes, (dialog, id) -> {
                     FavTeam favTeam = favTeamList.get(position);
-//                    presenter.deleteFavTeam(favTeam.getId());
+//                    presenter.deleteFavTeam(favTeam);
+
+                    final AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME) //Instanciamos la BBDD -> Pasamos el contexto para saber donde estamos
+                            .allowMainThreadQueries().build();
+                    db.favTeamDao().delete(favTeam);
 
                     favTeamList.remove(position);
                     notifyItemRemoved(position);

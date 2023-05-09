@@ -15,7 +15,7 @@ public class FavTeamPresenter implements FavTeamRegisterContract.Presenter {
      * @param view
      */
     public FavTeamPresenter(TeamAdapter view) {
-        model = new FavTeamRegisterModel(); //le pasamos el contexto al model
+        model = new FavTeamRegisterModel(view.getContext()); //le pasamos el contexto al model
         this.view = view;
     }
 

@@ -232,11 +232,11 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> im
                     favTeam.setEndTrain(team.getEndTrain());
                     favTeam.setActive(team.isActive());
 
-//                    favPresenter.registerFavTeam(favTeam);
+                    favPresenter.registerFavTeam(favTeam);
 //                    Añadir a la Base de Datos
-                    final AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
-                            .allowMainThreadQueries().build();
-                    database.favTeamDao().insert(favTeam);
+//                    final AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
+//                            .allowMainThreadQueries().build();
+//                    database.favTeamDao().insert(favTeam);
                 })
                 .setNegativeButton(R.string.no, (dialog, id) -> dialog.dismiss());
         AlertDialog dialog = builder.create();
