@@ -223,7 +223,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> im
                     Team team = teamList.get(position);
 
                     FavTeam favTeam = new FavTeam();
-//                    favTeam.setId(team.getId());
+                    favTeam.setId(team.getId());
                     favTeam.setCategory(team.getCategory());
                     favTeam.setCompetition(team.getCompetition());
                     favTeam.setCuota(team.getCuota());

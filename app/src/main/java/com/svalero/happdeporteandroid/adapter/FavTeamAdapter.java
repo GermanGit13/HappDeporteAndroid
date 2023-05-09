@@ -1,5 +1,6 @@
 package com.svalero.happdeporteandroid.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,7 +65,7 @@ public class FavTeamAdapter extends RecyclerView.Adapter<FavTeamAdapter.TeamHold
      */
     @Override
     public void onBindViewHolder(TeamHolder holder, int position) {
-//        holder.teamId.setText(String.valueOf(favTeamList.get(position).getId()));
+        holder.favTeamId.setText(String.valueOf(favTeamList.get(position).getId()));
         holder.favTeamCategory.setText(favTeamList.get(position).getCategory());
         holder.favTeamCompetition.setText(favTeamList.get(position).getCompetition());
         holder.favTeamCuota.setText(String.valueOf(favTeamList.get(position).getCuota())); //Proviene de un double
@@ -104,7 +105,7 @@ public class FavTeamAdapter extends RecyclerView.Adapter<FavTeamAdapter.TeamHold
      * Creamos todos los componentes que tenemos
      */
     public class TeamHolder extends RecyclerView.ViewHolder {
-//        public TextView teamId;
+        public TextView favTeamId;
         public TextView favTeamCategory;
         public TextView favTeamCompetition;
         public TextView favTeamCuota;
@@ -125,7 +126,7 @@ public class FavTeamAdapter extends RecyclerView.Adapter<FavTeamAdapter.TeamHold
             super(view); //Vista padre
             parentView = view; //Guardamos el componente padre
 
-//            teamId = view.findViewById(R.id.team_id);
+            favTeamId = view.findViewById(R.id.fav_team_id);
             favTeamCategory = view.findViewById(R.id.fav_team_category);
             favTeamCompetition = view.findViewById(R.id.fav_team_competition);
             favTeamCuota = view.findViewById(R.id.fav_team_cuota);
@@ -137,29 +138,29 @@ public class FavTeamAdapter extends RecyclerView.Adapter<FavTeamAdapter.TeamHold
             deleteFavTeamButton = view.findViewById(R.id.delete_favteam_button);
 
             // Eliminar un equipo
-//            deleteTeamButton.setOnClickListener(v -> deleteTeam(getAdapterPosition()));
+            deleteFavTeamButton.setOnClickListener(v -> deleteTeam(getAdapterPosition()));
 
         }
     }
 
-//    private void deleteTeam(int position) {
-////        Team team = teamList.get(position);
-////        long idTeam = team.getId();
-////        Log.d("Team Borrar", "Desde Aviso de Borrar:" + team.getId() + "-" + idTeam);
-//
-//        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-//        builder.setMessage(R.string.are_you_sure)
-//                .setTitle(R.string.remove_team)
-//                .setPositiveButton(R.string.yes, (dialog, id) -> {
-//                    Team team = teamList.get(position);
-//                    presenter.deleteFavTeam(team.getId());
-//
-//                    teamList.remove(position);
-//                    notifyItemRemoved(position);
-//                })
-//                .setNegativeButton(R.string.no, (dialog, id) -> dialog.dismiss());
-//        AlertDialog dialog = builder.create();
-//        dialog.show();
-//    }
+    private void deleteTeam(int position) {
+//        Team team = teamList.get(position);
+//        long idTeam = team.getId();
+//        Log.d("Team Borrar", "Desde Aviso de Borrar:" + team.getId() + "-" + idTeam);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(R.string.are_you_sure)
+                .setTitle(R.string.remove_team)
+                .setPositiveButton(R.string.yes, (dialog, id) -> {
+                    FavTeam favTeam = favTeamList.get(position);
+//                    presenter.deleteFavTeam(favTeam.getId());
+
+                    favTeamList.remove(position);
+                    notifyItemRemoved(position);
+                })
+                .setNegativeButton(R.string.no, (dialog, id) -> dialog.dismiss());
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 
 }
