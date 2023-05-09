@@ -85,6 +85,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, MapsActivity.class); //donde nos manda al pinchar sobre el boton mapas en el action bar
             startActivity(intent);
             return true;
+        }  else if (item.getItemId() == R.id.go_fav) { //Para cuando pulsan en la boton del mapa en el actionbar
+            Intent intent = new Intent(this, FavTeamListView.class); //donde nos manda al pinchar sobre el boton mapas en el action bar
+            startActivity(intent);
+            return true;
         }
         return false;
     }

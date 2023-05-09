@@ -1,30 +1,31 @@
 package com.svalero.happdeporteandroid.adapter;
 
+import static com.svalero.happdeporteandroid.db.Constants.DATABASE_NAME;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
 import com.svalero.happdeporteandroid.R;
+import com.svalero.happdeporteandroid.contract.FavTeamRegisterContract;
 import com.svalero.happdeporteandroid.contract.TeamDeleteContract;
+import com.svalero.happdeporteandroid.db.AppDatabase;
+import com.svalero.happdeporteandroid.domain.FavTeam;
 import com.svalero.happdeporteandroid.domain.Team;
-import com.svalero.happdeporteandroid.domain.User;
+import com.svalero.happdeporteandroid.presenter.FavTeamPresenter;
 import com.svalero.happdeporteandroid.presenter.TeamDeletePresenter;
 import com.svalero.happdeporteandroid.view.MatchRegisterView;
 import com.svalero.happdeporteandroid.view.TeamModifyView;
-import com.svalero.happdeporteandroid.view.UserModifyView;
 
 import java.util.List;
 
@@ -34,13 +35,14 @@ import java.util.List;
  * al extender de la clase RecyclerView los @Override los añadira automáticamente para el patron Holder, solo añadiremos nosotros el 5)
  * implements TeamDeleteContract.View porque hace las funciones de view para implentar sus metodos
  */
-public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> implements TeamDeleteContract.View {
+public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> implements TeamDeleteContract.View, FavTeamRegisterContract.View {
 
     private Context context; // Activity en la que estamos
     private List<Team> teamList;
     private Team team;
     private View snackBarView;
     private TeamDeletePresenter presenter;
+    private FavTeamPresenter favPresenter;
 
     /**
      * 1) Constructor que creamos para pasarle los datos que queremos que pinte
@@ -51,6 +53,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> im
         this.context = context;
         this.teamList = dataList;
         presenter = new TeamDeletePresenter(this);
+        favPresenter = new FavTeamPresenter(this);
     }
 
     public Context getContext() {
@@ -130,6 +133,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> im
         public Button modifyTeamButton;
         public Button deleteTeamButton;
         public Button matchTeamButton; //Para crear un partido asociado a un equipo
+        private Button addFavoriteTeamButton;
 
         public View parentView; //vista padre - como el recyclerView
 
@@ -152,13 +156,14 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> im
 
 //            detailsTeamButton = view.findViewById(R.id.details_team_button);
             modifyTeamButton = view.findViewById(R.id.modify_team_button); //De momento en está vista no voy a modificar
-            deleteTeamButton = view.findViewById(R.id.delete_team_button);
+            deleteTeamButton = view.findViewById(R.id.delete_favteam_button);
             matchTeamButton = view.findViewById(R.id.match_team_button);
+            addFavoriteTeamButton = view.findViewById(R.id.addFavoriteTeamButton);
 
             //TODO añadir opción que realizarán los botones
 //            //Para decirle que hace el boton cuando pulsamos sobre el
-//            // Ver detalles de un puente
-//            detailsBrigdeButton.setOnClickListener(v -> detailsBrigdeButton(getAdapterPosition())); //al pulsar lo llevamos al método detailsBrigdeButton
+            // Añadir a favoritos
+            addFavoriteTeamButton.setOnClickListener(v -> addFavorite(getAdapterPosition())); //al pulsar lo llevamos al método detailsBrigdeButton
             // Modificar un equipo
             modifyTeamButton.setOnClickListener(v -> modifyTeam(getAdapterPosition()));
             // Eliminar un equipo
@@ -205,9 +210,38 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamHolder> im
     private void modifyTeam(int position) {
         Team team = teamList.get(position);
 
-
         Intent intent = new Intent(context, TeamModifyView.class);
         intent.putExtra("team", team); //Mandamos el objeto entero ya que es una clase serializable
         context.startActivity(intent);
+    }
+
+    public void addFavorite(int position){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage("Se va a añadir a favoritos")
+                .setTitle("Añadir a Favoritos")
+                .setPositiveButton(R.string.yes, (dialog, id) -> {
+                    Team team = teamList.get(position);
+
+                    FavTeam favTeam = new FavTeam();
+//                    favTeam.setId(team.getId());
+                    favTeam.setCategory(team.getCategory());
+                    favTeam.setCompetition(team.getCompetition());
+                    favTeam.setCuota(team.getCuota());
+                    favTeam.setDayTrain(team.getDayTrain());
+                    favTeam.setStartTrain(team.getStartTrain());
+                    favTeam.setEndTrain(team.getEndTrain());
+                    favTeam.setActive(team.isActive());
+
+//                    favPresenter.registerFavTeam(favTeam);
+//                    Añadir a la Base de Datos
+                    final AppDatabase database = Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME)
+                            .allowMainThreadQueries().build();
+                    database.favTeamDao().insert(favTeam);
+                })
+                .setNegativeButton(R.string.no, (dialog, id) -> dialog.dismiss());
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+//        Log.i("FavTeam","Guardado en BBDD Local "+ favTeam.getCategory());
     }
 }

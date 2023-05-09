@@ -55,4 +55,5 @@
     <string name="modify_coach">Al modificar el equipo se pierde el Id del entrenador</string>
     <string name="title_modify">Necesitarás id del entrenador</string>
     <string name="accept">Aceptar</string>
+    <string name="delete_to_favorite">Delete to Favorite</string>
 </resources>

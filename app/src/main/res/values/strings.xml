@@ -54,4 +54,5 @@
     <string name="modify_coach">For to modify team, you need the id of Coach</string>
     <string name="title_modify">Search the id users for the team</string>
     <string name="accept">Accept</string>
+    <string name="delete_to_favorite">Delete to Favorite</string>
 </resources>

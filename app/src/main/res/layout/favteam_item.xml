@@ -14,21 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textViewId"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="@string/id" />
-
-            <TextView
-                android:id="@+id/team_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-        </LinearLayout>
+            android:orientation="horizontal"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,7 +28,7 @@
                 android:text="@string/category" />
 
             <TextView
-                android:id="@+id/team_category"
+                android:id="@+id/fav_team_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -61,7 +47,7 @@
                 android:text="@string/competition" />
 
             <TextView
-                android:id="@+id/team_competition"
+                android:id="@+id/fav_team_competition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -80,7 +66,7 @@
                 android:text="@string/cuota" />
 
             <TextView
-                android:id="@+id/team_cuota"
+                android:id="@+id/fav_team_cuota"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -99,7 +85,7 @@
                 android:text="@string/day_training" />
 
             <TextView
-                android:id="@+id/team_day_train"
+                android:id="@+id/fav_team_day_train"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -118,7 +104,7 @@
                 android:text="@string/start_training" />
 
             <TextView
-                android:id="@+id/team_start_train"
+                android:id="@+id/fav_team_start_train"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -137,7 +123,7 @@
                 android:text="@string/end_training" />
 
             <TextView
-                android:id="@+id/team_end_train"
+                android:id="@+id/fav_team_end_train"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -156,7 +142,7 @@
                 android:text="@string/active" />
 
             <CheckBox
-                android:id="@+id/team_active"
+                android:id="@+id/fav_team_active"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="false"
@@ -191,21 +177,6 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/modify_team_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:backgroundTint="#020200"
-            android:onClick="modifyTeam"
-            android:padding="5dp"
-            android:text="@string/modify"
-            android:textColor="#F4D504"
-            android:textSize="12sp"
-            app:icon="?android:attr/actionModeFindDrawable"
-            app:iconTint="#F4D504" />
-
-        <Button
             android:id="@+id/delete_favteam_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -213,18 +184,11 @@
             android:layout_weight="1"
             android:backgroundTint="#020200"
             android:padding="5dp"
-            android:text="@string/delete"
+            android:text="@string/delete_to_favorite"
             android:textColor="#F4D504"
             android:textSize="12sp"
             app:icon="@android:drawable/ic_menu_delete"
             app:iconTint="#F4D504" />
-
-        <Button
-            android:id="@+id/addFavoriteTeamButton"
-            android:layout_width="16dp"
-            android:layout_height="63dp"
-            android:layout_weight="1"
-            app:icon="@drawable/ic_baseline_favorite_border_24" />
 
     </LinearLayout>
 
@@ -232,20 +196,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/match_team_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="#020200"
-            android:padding="5dp"
-            android:text="@string/register_match"
-            android:textColor="#F4D504"
-            app:icon="@drawable/ic_baseline_sports_kabaddi_24"
-            app:iconTint="#F4D504" />
-
-    </LinearLayout>
+        android:orientation="vertical"/>
 
 </LinearLayout>

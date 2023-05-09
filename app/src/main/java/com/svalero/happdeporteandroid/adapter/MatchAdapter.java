@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.svalero.happdeporteandroid.R;
 import com.svalero.happdeporteandroid.domain.Match;
-import com.svalero.happdeporteandroid.domain.User;
 
 import java.util.List;
 
@@ -123,5 +122,7 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.MatchHolder>
 //            //Añadir Inspeccion
 //            inspectionBrigdeButton.setOnClickListener(v -> inspectionBrigdeButton(getAdapterPosition()));
         }
+
+
     }
 }
