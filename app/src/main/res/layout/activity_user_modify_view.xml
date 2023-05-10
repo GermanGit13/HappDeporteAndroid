@@ -214,6 +214,9 @@
         android:orientation="horizontal">
 
         <Button
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:textSize="12sp"
+            app:iconSize="30dp"
             android:id="@+id/modify_user_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -224,11 +227,13 @@
             android:padding="5dp"
             android:text="@string/modify"
             android:textColor="#F4D504"
-            android:textSize="12sp"
             app:icon="?android:attr/actionModeFindDrawable"
             app:iconTint="#F4D504" />
 
         <Button
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:textSize="12sp"
+            app:iconSize="30dp"
             android:id="@+id/modify_user_cancel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -239,7 +244,6 @@
             android:padding="5dp"
             android:text="@string/cancel"
             android:textColor="#F4D504"
-            android:textSize="12sp"
             app:icon="@drawable/ic_baseline_cancel_presentation_24"
             app:iconPadding="12dp"
             app:iconTint="#F4D504" />

@@ -181,6 +181,9 @@
         tools:layout_editor_absoluteX="10dp">
 
         <Button
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:textSize="12sp"
+            app:iconSize="30dp"
             android:id="@+id/add_team_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -193,6 +196,9 @@
             app:icon="@drawable/ic_baseline_data_saver_on_24" />
 
         <Button
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:textSize="12sp"
+            app:iconSize="30dp"
             android:id="@+id/back_match_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

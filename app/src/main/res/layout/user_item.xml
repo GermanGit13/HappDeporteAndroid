@@ -115,6 +115,9 @@
         android:orientation="horizontal">
 
         <Button
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:textSize="12sp"
+            app:iconSize="30dp"
             android:id="@+id/modify_user_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -123,14 +126,15 @@
             android:backgroundTint="#020200"
             android:padding="5dp"
             android:text="@string/modify"
-            android:textSize="12sp"
             android:textColor="#F4D504"
             app:iconTint="#F4D504"
             app:icon="?android:attr/actionModeFindDrawable" />
 
         <Button
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:textSize="12sp"
+            app:iconSize="30dp"
             android:id="@+id/delete_user_button"
-            style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -139,7 +143,6 @@
             android:padding="5dp"
             android:text="@string/delete"
             android:textColor="#F4D504"
-            android:textSize="12sp"
             app:icon="@android:drawable/ic_menu_delete"
             app:iconPadding="12dp"
             app:iconTint="#F4D504" />
@@ -153,6 +156,9 @@
         android:orientation="vertical">
 
         <Button
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:textSize="12sp"
+            app:iconSize="30dp"
             android:id="@+id/team_user_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

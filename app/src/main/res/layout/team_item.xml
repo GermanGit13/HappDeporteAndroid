@@ -191,6 +191,9 @@
         android:orientation="horizontal">
 
         <Button
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:textSize="12sp"
+            app:iconSize="30dp"
             android:id="@+id/modify_team_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -201,11 +204,13 @@
             android:padding="5dp"
             android:text="@string/modify"
             android:textColor="#F4D504"
-            android:textSize="12sp"
             app:icon="?android:attr/actionModeFindDrawable"
             app:iconTint="#F4D504" />
 
         <Button
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:textSize="12sp"
+            app:iconSize="30dp"
             android:id="@+id/delete_favteam_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -215,16 +220,22 @@
             android:padding="5dp"
             android:text="@string/delete"
             android:textColor="#F4D504"
-            android:textSize="12sp"
             app:icon="@android:drawable/ic_menu_delete"
             app:iconTint="#F4D504" />
 
         <Button
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:textSize="12sp"
+            app:iconSize="30dp"
             android:id="@+id/addFavoriteTeamButton"
-            android:layout_width="16dp"
-            android:layout_height="63dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-            app:icon="@drawable/ic_baseline_favorite_border_24" />
+            android:backgroundTint="#020200"
+            android:textColor="#F4D504"
+            app:icon="@drawable/ic_baseline_favorite_border_24"
+            app:iconTint="#F4D504"/>
 
     </LinearLayout>
 
@@ -235,6 +246,9 @@
         android:orientation="vertical">
 
         <Button
+            style="@style/Widget.Material3.Button.IconButton.Outlined"
+            android:textSize="12sp"
+            app:iconSize="50dp"
             android:id="@+id/match_team_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
