@@ -111,11 +111,11 @@ public class MatchRegisterView extends AppCompatActivity implements MatchRegiste
         /**
          * Validaciones de los campos
          */
-//        if (markerA <= 0) {
+//        if (markerA < 0) {
 //            Toast.makeText(this, R.string.add_result_markerA, Toast.LENGTH_LONG).show();
 //            return;
 //        }
-//        if (markerB <= 0) {
+//        if (markerB < 0) {
 //            Toast.makeText(this, R.string.add_result_markerA, Toast.LENGTH_LONG).show();
 //            return;
 //        }
@@ -134,6 +134,7 @@ public class MatchRegisterView extends AppCompatActivity implements MatchRegiste
 
         Match match = new Match(teamB, markerA, markerB, analisys, point.latitude(), point.longitude(), dateMatch, hourMatch);
         presenter.registerMatch(teamId, match);
+
     }
 
     public void goBackButton(View view) {
