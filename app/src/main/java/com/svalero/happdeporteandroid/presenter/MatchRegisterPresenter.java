@@ -32,7 +32,8 @@ public class MatchRegisterPresenter implements MatchRegisterContract.Presenter, 
 
     @Override
     public void onRegisterSuccess(Match match) {
-        view.showMessage("El partido " + match.getId() + " se ha registrado correctamente");
+//        view.showMessage("El partido " + match.getId() + " se ha registrado correctamente");
+        view.showMessage("El partido  se ha registrado correctamente");
     }
 
     @Override

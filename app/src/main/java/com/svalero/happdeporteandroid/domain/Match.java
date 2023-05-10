@@ -47,7 +47,7 @@ public class Match implements Serializable {
     }
 
     /**
-     *Constructor para modificar Partidos
+     *Constructor para registrar  Partidos
      */
     public Match(String teamB, int markerA, int markerB, String analysis, double latitude, double longitude, String dateMatch, String hourMatch, Team teamInMatch) {
         this.teamB = teamB;

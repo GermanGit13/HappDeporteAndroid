@@ -60,7 +60,7 @@ public class MatchRegisterView extends AppCompatActivity implements MatchRegiste
         gesturesPlugin.addOnMapClickListener(point -> {
             removeAllMarkers();
             this.point = point;
-//            addMarker(point);
+            addMarker(point);
             return true;
         });
 
@@ -82,7 +82,7 @@ public class MatchRegisterView extends AppCompatActivity implements MatchRegiste
     private void addMarker(Point point) {
         PointAnnotationOptions pointAnnotationOptions = new PointAnnotationOptions()
                 .withPoint(point)
-                .withIconImage(BitmapFactory.decodeResource(getResources(), R.mipmap.red_marker));
+                .withIconImage(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_banner_foreground));
         pointAnnotationManager.create(pointAnnotationOptions);
     }
 
@@ -148,7 +148,7 @@ public class MatchRegisterView extends AppCompatActivity implements MatchRegiste
 
     @Override
     public void showMessage(String message) {
-        Snackbar.make(((EditText) findViewById(R.id.et_teamB)), message,
+        Snackbar.make(((EditText) findViewById(R.id.et_analysis)), message,
                 BaseTransientBottomBar.LENGTH_LONG).show();
     }
 

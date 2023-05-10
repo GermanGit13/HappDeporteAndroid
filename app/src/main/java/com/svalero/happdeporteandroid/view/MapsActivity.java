@@ -69,7 +69,7 @@ public class MapsActivity extends AppCompatActivity  implements MatchListContrac
         PointAnnotationOptions pointAnnotationOptions = new PointAnnotationOptions()
                 .withPoint(point)
                 .withTextField(title) //asi aparece el nombre en el mapa
-                .withIconImage(BitmapFactory.decodeResource(getResources(), R.mipmap.red_marker));
+                .withIconImage(BitmapFactory.decodeResource(getResources(), R.drawable.red_marker_background));
         pointAnnotationManager.create(pointAnnotationOptions);
     }
 
