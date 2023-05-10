@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewId"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/id" />
+
+            <TextView
+                android:id="@+id/team_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewCategory"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/category" />
+
+            <TextView
+                android:id="@+id/team_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewCompetition"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/competition" />
+
+            <TextView
+                android:id="@+id/team_competition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewCuota"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/cuota" />
+
+            <TextView
+                android:id="@+id/team_cuota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewDay"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/day_training" />
+
+            <TextView
+                android:id="@+id/team_day_train"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewStart"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/start_training" />
+
+            <TextView
+                android:id="@+id/team_start_train"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewEnd"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/end_training" />
+
+            <TextView
+                android:id="@+id/team_end_train"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewActive"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/active" />
+
+            <CheckBox
+                android:id="@+id/team_active"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:orientation="horizontal">-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/textViewCoach"-->
+        <!--                android:layout_width="100dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="@string/coach" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/team_user"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:textColor="#000000"-->
+        <!--                android:textSize="16sp" />-->
+        <!--        </LinearLayout>-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/modify_team_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#020200"
+            android:onClick="modifyTeam"
+            android:padding="5dp"
+            android:text="@string/modify"
+            android:textColor="#F4D504"
+            android:textSize="12sp"
+            app:icon="?android:attr/actionModeFindDrawable"
+            app:iconTint="#F4D504" />
+
+        <Button
+            android:id="@+id/delete_favteam_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#020200"
+            android:padding="5dp"
+            android:text="@string/delete"
+            android:textColor="#F4D504"
+            android:textSize="12sp"
+            app:icon="@android:drawable/ic_menu_delete"
+            app:iconTint="#F4D504" />
+
+        <Button
+            android:id="@+id/addFavoriteTeamButton"
+            android:layout_width="16dp"
+            android:layout_height="63dp"
+            android:layout_weight="1"
+            app:icon="@drawable/ic_baseline_favorite_border_24" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/match_team_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#020200"
+            android:padding="5dp"
+            android:text="@string/register_match"
+            android:textColor="#F4D504"
+            app:icon="@drawable/ic_baseline_sports_kabaddi_24"
+            app:iconTint="#F4D504" />
+
+    </LinearLayout>
+
+</LinearLayout>

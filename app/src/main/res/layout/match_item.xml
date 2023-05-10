@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textViewId"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/id" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/team_id"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="16sp" />-->
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textViewTeam"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/team" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/match_team"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="#000000"-->
+<!--                android:textSize="16sp" />-->
+<!--        </LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewTeamB"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/opponent_team" />
+
+            <TextView
+                android:id="@+id/match_team_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewMarkerA"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/local_marker" />
+
+            <TextView
+                android:id="@+id/match_markerA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewMarkerB"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/opponent_marker" />
+
+            <TextView
+                android:id="@+id/match_markerB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewAnalysis"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/analysis" />
+
+            <TextView
+                android:id="@+id/match_analysis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textDateMatch"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/day" />
+
+            <TextView
+                android:id="@+id/match_dateMatch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewHourMatch"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/hour" />
+
+            <TextView
+                android:id="@+id/match_hourMatch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+<!--        <Button-->
+<!--            android:id="@+id/details_match_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="5dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:padding="5dp"-->
+<!--            android:text="@string/details"-->
+<!--            android:textSize="12sp"-->
+<!--            app:icon="?android:attr/actionModeFindDrawable" />-->
+
+        <Button
+            android:id="@+id/delete_match_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#020200"
+            android:padding="5dp"
+            android:text="@string/delete"
+            android:textSize="12sp"
+            android:textColor="#F4D504"
+            app:iconTint="#F4D504"
+            app:icon="@android:drawable/ic_menu_delete" />
+
+    </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="1"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/team_user_button"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:padding="5dp"-->
+<!--            android:text="@string/addTeamToCoach"-->
+<!--            app:icon="@drawable/ic_baseline_sports_baseball_24" />-->
+<!--    </LinearLayout>-->
+
+</LinearLayout>

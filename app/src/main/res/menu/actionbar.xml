@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/view_map"
+        android:icon="@drawable/mapa"
+        android:title="@string/view_map"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/go_fav"
+        android:icon="@drawable/fav"
+        android:title="@string/preferences"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/go_home"
+        android:icon="@drawable/home2"
+        android:title="@string/home"
+        app:showAsAction="always" />
+
+</menu>
