@@ -21,6 +21,5 @@ La Aplicación permite borrar usuarios y equipos. Dar de alta equipos y partidos
 - `Funcionalidad 8`: Utilizar Material Design para personalizar el diseño de la aplicación -
 
 
-Para poder realizar un uso inicial se debe crear un usuario primero desde Postman incluido en la colección junto con la API consumida.
-La Aplicación permite borrar usuarios y equipos. Dar de alta equipos y partidos, modificar usuarios y equipos. Listar usuarios, equipos y partidos. 
+
 
